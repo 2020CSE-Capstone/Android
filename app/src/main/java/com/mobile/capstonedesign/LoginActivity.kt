@@ -20,5 +20,12 @@ class LoginActivity : AppCompatActivity() {
 
         tvFindPassword.setOnClickListener {
         }
+
+        tvSignUp.setOnClickListener {
+            startActivity<SignUpEmailActivity>()
+        }
+        tvFindPassword.setOnClickListener {
+            startActivity<FindPasswordCertificationActivity>()
+        }
     }
 }

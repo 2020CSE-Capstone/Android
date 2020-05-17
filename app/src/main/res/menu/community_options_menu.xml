@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/community_write"
-        android:title="글쓰기"
+        android:title="@string/community_option_writing"
         app:showAsAction="always"/>
 
     <item android:id="@+id/community_search"
-        android:title="Search"
+        android:title="@string/community_option_search"
         android:icon="@drawable/ic_search_white_24dp"
         app:showAsAction="always"/>
 

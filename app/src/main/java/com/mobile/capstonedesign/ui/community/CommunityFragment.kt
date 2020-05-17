@@ -1,18 +1,17 @@
 package com.mobile.capstonedesign.ui.community
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mobile.capstonedesign.CommunityWritingActivity
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.ui.home.pager.ChartPagerFragment
 import kotlinx.android.synthetic.main.fragment_community.*
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class CommunityFragment : Fragment() {
 
@@ -53,12 +52,15 @@ class CommunityFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //get item id to handle item clicks
+        //get item id to handle item clicksO
         val id = item.itemId
-        //handle item clicks
+        //handle item click
         if (id == R.id.community_write){
             Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
+                val intent = Intent(activity,CommunityWritingActivity::class.java)
+                startActivity(intent)
         }
+
         if (id == R.id.community_search){
             Toast.makeText(activity, "찾기", Toast.LENGTH_SHORT).show()
         }
