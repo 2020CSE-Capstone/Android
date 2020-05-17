@@ -10,6 +10,7 @@ import com.mobile.capstonedesign.ui.campaign.CampaignFragment
 import com.mobile.capstonedesign.ui.community.CommunityFragment
 import com.mobile.capstonedesign.ui.home.HomeFragment
 import com.mobile.capstonedesign.ui.records.RecordsFragment
+import kotlinx.android.synthetic.main.fragment_community.*
 
 private const val TAG_HOME_FRAGMENT = "home_fragment"
 private const val TAG_RECORDS_FRAGMENT = "records_fragment"
@@ -21,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -32,10 +32,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_home -> setFragment(TAG_HOME_FRAGMENT, HomeFragment())
                 R.id.navigation_records -> setFragment(TAG_RECORDS_FRAGMENT, RecordsFragment())
-                R.id.navigation_community -> setFragment(
-                    TAG_COMMUNITY_FRAGMENT,
-                    CommunityFragment()
-                )
+                R.id.navigation_community -> setFragment(TAG_COMMUNITY_FRAGMENT, CommunityFragment())
                 R.id.navigation_campaign -> setFragment(TAG_CAMPAIGN_FRAGMENT, CampaignFragment())
             }
 

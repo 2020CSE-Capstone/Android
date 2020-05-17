@@ -2,17 +2,20 @@ package com.mobile.capstonedesign.ui.community
 
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mobile.capstonedesign.MainActivity
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.ui.home.pager.ChartPagerFragment
 import kotlinx.android.synthetic.main.fragment_community.*
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_community.view.*
+import java.lang.Appendable
+
 
 class CommunityFragment : Fragment() {
 
@@ -38,29 +41,39 @@ class CommunityFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.community_write -> {
+                    Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
+                }
+                R.id.community_search -> {
+                    Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
+                }
+            }
+            true
+        }
+
         init()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.community_options_menu, menu);
+        menu.clear()
+        toolbar.inflateMenu(R.menu.community_options_menu)
+        inflater.inflate(R.menu.community_options_menu, menu)
 
         super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //get item id to handle item clicks
-        val id = item.itemId
-        //handle item clicks
-        if (id == R.id.community_write){
-            Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
-        }
-        if (id == R.id.community_search){
-            Toast.makeText(activity, "찾기", Toast.LENGTH_SHORT).show()
+        when (item.itemId) {
+            R.id.community_write -> {
+                Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.community_search -> {
+                Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
+                return true
+            }
         }
 
         return super.onOptionsItemSelected(item)
@@ -69,7 +82,7 @@ class CommunityFragment : Fragment() {
     private fun init() {
         vpWriting?.adapter = object : FragmentStateAdapter(this) {
             override fun createFragment(position: Int): Fragment {
-                return when (position){
+                return when (position) {
                     0 -> RecentWritingFragment.newInstance()
                     1 -> PopularWritingFragment.newInstance()
                     else -> MyWritingFragment.newInstance()
