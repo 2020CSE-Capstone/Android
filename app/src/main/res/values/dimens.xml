@@ -9,6 +9,8 @@
     <dimen name="common_margin">12dp</dimen>
     <dimen name="double_margin">24dp</dimen>
 
+    <dimen name="edit_text_margin_top">50dp</dimen>
+    <dimen name="text_margin_top">10dp</dimen>
     <dimen name="button_margin">16dp</dimen>
     <dimen name="linear_layout_margin">12dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>

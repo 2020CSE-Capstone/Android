@@ -3,19 +3,13 @@ package com.mobile.capstonedesign.ui.community
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mobile.capstonedesign.MainActivity
 import com.mobile.capstonedesign.R
 import kotlinx.android.synthetic.main.fragment_community.*
-import kotlinx.android.synthetic.main.fragment_community.view.*
-import java.lang.Appendable
-
 
 class CommunityFragment : Fragment() {
 
