@@ -15,11 +15,16 @@
     <color name="colorButtonNormal">#5cb85c</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorDarkGray">#343434</color>
     <color name="colorGray">#747474</color>
     <color name="colorLightGray">#D5D5D5</color>
     <color name="colorRed">#FF0000</color>
+    <color name="colorCyan">#67BBFF</color>
     <color name="colorBackground">#F6F6F6</color>
     <color name="colorKakao">#F7E600</color>
     <color name="colorKakaoText">#3C1E1E</color>
     <color name="colorWarningRed">#3C1E1E</color>
+
+    <color name="colorDim">#76000000</color>
+
 </resources>

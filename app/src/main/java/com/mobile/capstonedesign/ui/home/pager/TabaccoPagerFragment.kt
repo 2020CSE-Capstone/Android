@@ -35,7 +35,7 @@ open class TabaccoPagerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home_tabacco, container, false)
-        textView2?.text = "second Page"
+        tvWritingContent?.text = "second Page"
 
         return view
     }

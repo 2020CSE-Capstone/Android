@@ -1,4 +1,4 @@
-package com.mobile.capstonedesign.retrofit.test
+package com.mobile.capstonedesign.http.test
 
 import io.reactivex.Single
 import retrofit2.http.GET

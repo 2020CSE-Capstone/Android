@@ -1,4 +1,4 @@
-package com.mobile.capstonedesign.retrofit.test
+package com.mobile.capstonedesign.http.test
 
 import android.view.LayoutInflater
 import android.view.View

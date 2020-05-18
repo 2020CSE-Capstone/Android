@@ -47,30 +47,9 @@ class CommunityFragment : Fragment() {
             true
         }
 
+        app_bar_image.setColorFilter(R.color.colorDim)
+
         init()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.clear()
-        toolbar.inflateMenu(R.menu.community_options_menu)
-        inflater.inflate(R.menu.community_options_menu, menu)
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.community_write -> {
-                Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
-                return true
-            }
-            R.id.community_search -> {
-                Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
-                return true
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
     }
 
     private fun init() {

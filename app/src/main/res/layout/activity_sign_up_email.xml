@@ -8,7 +8,7 @@
     tools:context=".SignUpEmailActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvWrittenDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email_title"
@@ -17,13 +17,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvWriter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/email_warning"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWrittenDate" />
 
     <EditText
         android:id="@+id/editText9"
@@ -35,7 +35,7 @@
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tvWriter" />
 
     <Button
         android:id="@+id/button4"

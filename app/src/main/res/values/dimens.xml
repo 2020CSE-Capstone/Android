@@ -4,8 +4,12 @@
     <dimen name="sample_padding2">4dp</dimen>
     <dimen name="sample_padding3">8dp</dimen>
 
+    <dimen name="smallest_padding">4dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
     <dimen name="common_padding">12dp</dimen>
     <dimen name="double_padding">24dp</dimen>
+    <dimen name="smallest_margin">4dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
     <dimen name="common_margin">12dp</dimen>
     <dimen name="double_margin">24dp</dimen>
 
