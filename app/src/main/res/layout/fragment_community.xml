@@ -84,47 +84,19 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nestedScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="false"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            android:id="@+id/nestedScrollView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:fillViewport="false"-->
+<!--            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
                 tools:context=".ui.community.CommunityFragment">
-
-                <!--            <com.google.android.material.tabs.TabLayout-->
-                <!--                android:id="@+id/tlCommunity"-->
-                <!--                android:layout_width="300dp"-->
-                <!--                android:layout_height="40dp"-->
-                <!--                android:background="@color/colorWhite"-->
-                <!--                app:tabIndicatorFullWidth="false"-->
-                <!--                app:layout_constraintStart_toStartOf="parent"-->
-                <!--                app:layout_constraintTop_toTopOf="parent">-->
-
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="최신글 보기" />-->
-
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="인기글 보기" />-->
-
-                <!--                <com.google.android.material.tabs.TabItem-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:text="내 글 보기" />-->
-
-                <!--            </com.google.android.material.tabs.TabLayout>-->
-
-
-                <!--            app:layout_constraintTop_toBottomOf="@+id/tlCommunity"-->
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vpWriting"
@@ -133,11 +105,11 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.core.widget.NestedScrollView>
+<!--        </androidx.core.widget.NestedScrollView>-->
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -148,13 +120,3 @@
         android:layout_margin="16dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-<!--<TextView-->
-<!--android:id="@+id/text_community"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:textAlignment="center"-->
-<!--android:textSize="20sp"-->
-<!--app:layout_constraintStart_toStartOf="parent"-->
-<!--app:layout_constraintTop_toTopOf="parent" />-->

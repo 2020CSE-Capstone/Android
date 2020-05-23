@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/common_padding"
+    android:paddingLeft="@dimen/common_padding"
+    android:paddingRight="@dimen/common_padding"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvCommentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/smallest_padding"
+        android:text="유저이름"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintStart_toEndOf="@+id/vIfReply"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCommentContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/small_padding"
+        android:text="댓글 내용"
+        android:textColor="@color/colorBlack"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vIfReply"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentName" />
+
+    <TextView
+        android:id="@+id/tvCommentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="@dimen/double_padding"
+        android:paddingBottom="@dimen/common_padding"
+        android:text="2020.05.23. 16:31"
+        app:layout_constraintStart_toEndOf="@+id/vIfReply"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentContent" />
+
+    <TextView
+        android:id="@+id/tvCommentReply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/common_padding"
+        android:text="답글 쓰기"
+        app:layout_constraintStart_toEndOf="@+id/tvCommentDate"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentContent" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommentReply" />
+
+    <View
+        android:id="@+id/vIfReply"
+        android:layout_width="@dimen/large_padding"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

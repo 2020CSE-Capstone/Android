@@ -1,5 +1,6 @@
 package com.mobile.capstonedesign.ui.community
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import com.mobile.capstonedesign.CommunityWritingActivity
 import com.mobile.capstonedesign.R
 import kotlinx.android.synthetic.main.fragment_community.*
 
@@ -39,6 +41,8 @@ class CommunityFragment : Fragment() {
             when (it.itemId) {
                 R.id.community_write -> {
                     Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(activity, CommunityWritingActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.community_search -> {
                     Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()

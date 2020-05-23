@@ -1,17 +1,18 @@
 package com.mobile.capstonedesign
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.mobile.capstonedesign.dto.request.InsertWritingRequestDTO
+import com.mobile.capstonedesign.dto.request.UpdateWritingRequestDTO
 import com.mobile.capstonedesign.http.HttpClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_community_writing.*
 
-class CommunityWritingActivity : AppCompatActivity() {
+class CommunityUpdateWritingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,14 +34,10 @@ class CommunityWritingActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.storage -> {
-                insertWriting(
-                    InsertWritingRequestDTO(
-                        etTitle.text.toString(),
-                        etContent.text.toString(),
-                        1
-                    )
+                updateWriting(
+                    this.intent.getIntExtra("board_no", 0),
+                    UpdateWritingRequestDTO(etTitle.text.toString(), etContent.text.toString())
                 )
-                finish()
             }
             android.R.id.home -> {
                 finish()
@@ -49,20 +46,26 @@ class CommunityWritingActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun insertWriting(insertWritingRequestDTO: InsertWritingRequestDTO) {
+    private fun intentParent() {
+        var intent = Intent()
+        setResult(RESULT_OK, intent)
+        finish()
+    }
+
+    private fun updateWriting(board_no: Int, updateWritingRequestDTO: UpdateWritingRequestDTO) {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable1 = HttpClient().getApi(BASE_URL).insertWriting(insertWritingRequestDTO)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ result ->
-                Toast.makeText(this@CommunityWritingActivity, "게시글을 등록하였습니다.", Toast.LENGTH_SHORT)
-                    .show()
-            }, { error ->
-                Toast.makeText(
-                    this@CommunityWritingActivity,
-                    "게시글 추가에 실패하였습니다.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            })
+        val disposable1 =
+            HttpClient().getApi(BASE_URL).updateWriting(board_no, updateWritingRequestDTO)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ result ->
+                    intentParent()
+                }, { error ->
+                    Toast.makeText(
+                        this@CommunityUpdateWritingActivity,
+                        "게시글 추가에 실패하였습니다.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                })
     }
 }

@@ -15,7 +15,7 @@ class MemberRecyclerViewAdapter : RecyclerView.Adapter<MemberRecyclerViewAdapter
     inner class mViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var id: TextView = itemView.tvID
         var email: TextView = itemView.tvEmail
-        var name: TextView = itemView.tvName
+        var name: TextView = itemView.tvDetailName
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): mViewHolder =

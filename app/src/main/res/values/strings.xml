@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Capstone Design</string>
 
+    <!-- 에뮬레이터 -->
+<!--        <string name="server_http_port">http://10.0.2.2:8080/api/</string>-->
     <!-- 서버 http, port -->
     <string name="server_http_port">http://13.125.162.225:8080/api/</string>
 
@@ -28,11 +30,9 @@
     <string name="measure_alcohol">음주 측정</string>
     <string name="measure_tobacco">흡연 측정</string>
 
-    <string name="defTitle">여기를 눌러서 글을 작성할 수 있습니다.\n\n[홍보게시물 작성 금지]\n1.링크 클릭,학교대항전,추천인 입력\n
-       2.글 작성.계정 공유 요청 등 게시물 대리 작성 행위\n3.공동구매,펀딩,기부금품 요청행위\n4.그 외 모든 직간접적 광고.홍보.판매 행위 \n
+    <string name="defTitle">여기를 눌러서 글을 작성할 수 있습니다.\n\n[홍보게시물 작성 금지]\n1.링크 클릭,추천인 입력\n2.글 작성.계정 공유 요청 등 게시물 대리 작성 행위\n3.공동구매,펀딩,기부금품 요청행위\n4.그 외 모든 직간접적 광고.홍보.판매 행위 \n
      \n[선거,정당.정치인 관련 게시물 작성 금지]\n1.정당.정치인,선거 후보자 및 관련자에 대한 비방,비하,모욕\n2.선거 후보자에 대한 지지.홍보 및 선거운동 활동\n
-    3.여론조사 결과 인용\n\n[커뮤니티 이용규칙에 어긋나는 행위 금지]\n1.게시판의 스크린샷,게시물 내용 유출\n2.욕설,비하,음란물,개인정보가 포함된 게시물 게시\n
-    3.특정인이나 단체/지역을 비방하는 행위\n4.기타 약관 및 현행법에 어긋나는 행위</string>
+    3.여론조사 결과 인용\n\n[커뮤니티 이용규칙에 어긋나는 행위 금지]\n1.게시판의 스크린샷,게시물 내용 유출\n2.욕설,비하,음란물,개인정보가 포함된 게시물 게시\n3.특정인이나 단체/지역을 비방하는 행위\n4.기타 약관 및 현행법에 어긋나는 행위</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="certification_title">인증번호 숫자 5자리를 입력해 주세요\n(2/3)</string>
