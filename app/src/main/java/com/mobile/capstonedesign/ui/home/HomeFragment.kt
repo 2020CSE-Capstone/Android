@@ -28,10 +28,10 @@ class HomeFragment : Fragment() {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+//        val textView: TextView = root.findViewById(R.id.text_home)
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+//            textView.text = it
         })
 
         return root
@@ -40,41 +40,41 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        measure_button.setOnClickListener {
-            val intent = Intent(context, SelectMeasureModeActivity::class.java)
-            startActivity(intent)
-        }
+//        measure_button.setOnClickListener {
+//            val intent = Intent(context, SelectMeasureModeActivity::class.java)
+//            startActivity(intent)
+//        }
 
-        init()
+//        init()
     }
 
-    private fun init() {
-        vpAlcoholChart?.adapter = object : FragmentStateAdapter(this) {
-            override fun createFragment(position: Int): Fragment {
-                return ChartPagerFragment.newInstance()
-            }
-
-            override fun getItemCount(): Int {
-                return 12
-            }
-        }
-
-        TabLayoutMediator(tlAlcoholCalendar, this.vpAlcoholChart) { tab, position ->
-            tab.text = when (position) {
-                0 -> (position + 1).toString() + "월"
-                1 -> (position + 1).toString() + "월"
-                2 -> (position + 1).toString() + "월"
-                3 -> (position + 1).toString() + "월"
-                4 -> (position + 1).toString() + "월"
-                5 -> (position + 1).toString() + "월"
-                6 -> (position + 1).toString() + "월"
-                7 -> (position + 1).toString() + "월"
-                8 -> (position + 1).toString() + "월"
-                9 -> (position + 1).toString() + "월"
-                10 -> (position + 1).toString() + "월"
-                11 -> (position + 1).toString() + "월"
-                else -> (position + 1).toString() + "월"
-            }
-        }.attach()
-    }
+//    private fun init() {
+//        vpAlcoholChart?.adapter = object : FragmentStateAdapter(this) {
+//            override fun createFragment(position: Int): Fragment {
+//                return ChartPagerFragment.newInstance()
+//            }
+//
+//            override fun getItemCount(): Int {
+//                return 12
+//            }
+//        }
+//
+//        TabLayoutMediator(tlAlcoholCalendar, this.vpAlcoholChart) { tab, position ->
+//            tab.text = when (position) {
+//                0 -> (position + 1).toString() + "월"
+//                1 -> (position + 1).toString() + "월"
+//                2 -> (position + 1).toString() + "월"
+//                3 -> (position + 1).toString() + "월"
+//                4 -> (position + 1).toString() + "월"
+//                5 -> (position + 1).toString() + "월"
+//                6 -> (position + 1).toString() + "월"
+//                7 -> (position + 1).toString() + "월"
+//                8 -> (position + 1).toString() + "월"
+//                9 -> (position + 1).toString() + "월"
+//                10 -> (position + 1).toString() + "월"
+//                11 -> (position + 1).toString() + "월"
+//                else -> (position + 1).toString() + "월"
+//            }
+//        }.attach()
+//    }
 }

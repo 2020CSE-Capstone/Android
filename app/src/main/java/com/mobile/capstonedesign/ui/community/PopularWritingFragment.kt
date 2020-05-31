@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.capstonedesign.BoardDetailActivity
 
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.adapter.click.ItemClick
+import com.mobile.capstonedesign.adapter.click.BoardClick
 import com.mobile.capstonedesign.http.HttpClient
 import com.mobile.capstonedesign.adapter.WritingRVAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,8 +36,8 @@ class PopularWritingFragment : Fragment() {
 
         rvPopularWriting.layoutManager = LinearLayoutManager(activity)
         rvPopularWriting.adapter = writingRVAdapter
-        writingRVAdapter.itemClick = object :
-            ItemClick {
+        writingRVAdapter.boardClick = object :
+            BoardClick {
             override fun onClick(view: View, position: Int, no: Int) {
                 intentDetail(no)
             }
@@ -62,7 +62,7 @@ class PopularWritingFragment : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->
-                writingRVAdapter.update(items)
+                writingRVAdapter.update(items.data)
                 pbLoadingPopular.visibility = View.INVISIBLE
                 srlPopular.isRefreshing=false
             }, {

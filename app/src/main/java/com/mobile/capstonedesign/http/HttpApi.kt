@@ -1,44 +1,60 @@
 package com.mobile.capstonedesign.http
 
-import com.mobile.capstonedesign.dto.request.InsertWritingRequestDTO
-import com.mobile.capstonedesign.dto.request.UpdateWritingRequestDTO
+import com.mobile.capstonedesign.dto.request.*
+import com.mobile.capstonedesign.dto.response.CommentResponseDTO
 import com.mobile.capstonedesign.dto.response.WritingDetailResponseDTO
-import com.mobile.capstonedesign.dto.response.WritingSimpleResponseDTO
-import com.mobile.capstonedesign.model.Writing
+import com.mobile.capstonedesign.model.ResponseCommunity
+import com.mobile.capstonedesign.model.ResponseCommunityDetail
+import com.mobile.capstonedesign.model.ResponseCommunityList
 import io.reactivex.Observable
-import io.reactivex.Single
 import retrofit2.http.*
 
 interface HttpApi {
 
     /* Community */
     @GET("community/recent")
-    fun getRecentAllWritings(): Observable<ArrayList<WritingSimpleResponseDTO>>
+    fun getRecentAllWritings(): Observable<ResponseCommunityList>
 
-    @GET("community/like")
-    fun getLikeAllWritings(): Observable<ArrayList<WritingSimpleResponseDTO>>
+    @GET("community/popular")
+    fun getLikeAllWritings(): Observable<ResponseCommunityList>
 
     @GET("community/mypage/{user_id}")
-    fun getUserAllWritings(@Path("user_id") user_id: Int): Observable<ArrayList<WritingSimpleResponseDTO>>
+    fun getUserAllWritings(@Path("user_id") user_id: Int): Observable<ResponseCommunityList>
 
     @GET("community/{board_no}")
-    fun getWritingDetailByNo(@Path("board_no") board_no: Int): Observable<WritingDetailResponseDTO>
+    fun getWritingDetailByNo(@Path("board_no") board_no: Int): Observable<ResponseCommunityDetail>
 
     //    @Headers("Accept: application/json")
     @POST("community/")
-    fun insertWriting(@Body writing: InsertWritingRequestDTO): Observable<Boolean>
+    fun insertWriting(@Body writing: InsertWritingRequestDTO): Observable<ResponseCommunity>
 
     //    @Headers("Accept: application/json")
     @PUT("community/{board_no}")
-    fun updateWriting(@Path("board_no") board_no: Int, @Body writing: UpdateWritingRequestDTO): Observable<Boolean>
+    fun updateWriting(@Path("board_no") board_no: Int, @Body writing: UpdateWritingRequestDTO): Observable<ResponseCommunity>
 
     //    @Headers("Accept: application/json")
     @DELETE("community/{board_no}")
-    fun deleteWriting(@Path("board_no") board_no: Int): Observable<Boolean>
+    fun deleteWriting(@Path("board_no") board_no: Int): Observable<ResponseCommunity>
+
+
 
     /* Comment */
-    @GET("comment/")
-    fun getAllComments(): Observable<ArrayList<WritingSimpleResponseDTO>>
+    @GET("comment/{board_no}")
+    fun getAllComments(@Path("board_no") board_no: Int): Observable<ArrayList<CommentResponseDTO>>
+
+    @GET("comment/reply")
+    fun getAllReplyComments(@Query("board_no") board_no: Int, @Query("comment_no") comment_no: Int): Observable<ArrayList<CommentResponseDTO>>
+
+    @POST("comment/")
+    fun insertComment(@Body comment: InsertCommentRequestDTO): Observable<Boolean>
+
+    @POST("comment/reply/")
+    fun insertCommentReply(@Body comment_reply: InsertCommentReplyRequestDTO): Observable<Boolean>
+
+    @PUT("comment/{comment_no}")
+    fun updateComment(@Path("comment_no") comment_no: Int, @Body comment: UpdateCommentRequestDTO): Observable<Boolean>
+
+
 
     /* Sample */
     // this is test

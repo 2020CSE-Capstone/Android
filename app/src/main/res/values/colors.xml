@@ -24,7 +24,10 @@
     <color name="colorKakao">#F7E600</color>
     <color name="colorKakaoText">#3C1E1E</color>
     <color name="colorWarningRed">#3C1E1E</color>
-
     <color name="colorDim">#76000000</color>
+    <color name="colorSky">#B8EEFF</color>
+    <color name="colorSoftSky">#EEFFFF</color>
+    <color name="colorPink">#FFD3DC</color>
+    <color name="colorSoftPink">#FFE3EC</color>
 
 </resources>

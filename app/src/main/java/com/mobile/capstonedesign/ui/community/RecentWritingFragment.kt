@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.capstonedesign.BoardDetailActivity
 
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.adapter.click.ItemClick
+import com.mobile.capstonedesign.adapter.click.BoardClick
 import com.mobile.capstonedesign.http.HttpClient
 import com.mobile.capstonedesign.adapter.WritingRVAdapter
+import com.mobile.capstonedesign.dto.response.WritingSimpleResponseDTO
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_recent_writing.*
@@ -39,8 +40,8 @@ open class RecentWritingFragment : Fragment() {
 
         rvComment.layoutManager = LinearLayoutManager(activity)
         rvComment.adapter = writingRVAdapter
-        writingRVAdapter.itemClick = object :
-            ItemClick {
+        writingRVAdapter.boardClick = object :
+            BoardClick {
             override fun onClick(view: View, position: Int, no: Int) {
                 intentDetail(no)
             }
@@ -65,7 +66,7 @@ open class RecentWritingFragment : Fragment() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->
-                writingRVAdapter.update(items)
+                writingRVAdapter.update(items.data)
                 pbLoadingRecent.visibility = View.INVISIBLE
                 srlRecent.isRefreshing = false
             }, {

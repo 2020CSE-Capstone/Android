@@ -10,5 +10,6 @@ data class CommentResponseDTO(
     @SerializedName("seq") var seq: Int,
     @SerializedName("comment_date") var comment_date: Date,
     @SerializedName("user_id") var user_id: Int,
-    @SerializedName("community_board_no") var community_board_no: Int
+    @SerializedName("community_board_no") var community_board_no: Int,
+    @SerializedName("nickname") var nickname: String
 )

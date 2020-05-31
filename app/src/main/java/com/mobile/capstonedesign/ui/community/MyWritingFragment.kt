@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.capstonedesign.BoardDetailActivity
 
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.adapter.click.ItemClick
+import com.mobile.capstonedesign.adapter.click.BoardClick
 import com.mobile.capstonedesign.http.HttpClient
 import com.mobile.capstonedesign.adapter.WritingRVAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -40,8 +40,8 @@ class MyWritingFragment : Fragment() {
 
         rvMyWriting.layoutManager = LinearLayoutManager(activity)
         rvMyWriting.adapter = writingRVAdapter
-        writingRVAdapter.itemClick = object :
-            ItemClick {
+        writingRVAdapter.boardClick = object :
+            BoardClick {
             override fun onClick(view: View, position: Int, no: Int) {
                 intentDetail(no)
             }
@@ -62,11 +62,11 @@ class MyWritingFragment : Fragment() {
 
     private fun getUserAllWriting() {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable = HttpClient().getApi(BASE_URL).getUserAllWritings(5)
+        val disposable = HttpClient().getApi(BASE_URL).getUserAllWritings(1)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->
-                writingRVAdapter.update(items)
+                writingRVAdapter.update(items.data)
                 pbLoadingUser.visibility = View.INVISIBLE
                 srlMyPage.isRefreshing=false
             }, {

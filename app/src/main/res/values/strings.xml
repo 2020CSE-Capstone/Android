@@ -2,7 +2,7 @@
     <string name="app_name">Capstone Design</string>
 
     <!-- 에뮬레이터 -->
-<!--        <string name="server_http_port">http://10.0.2.2:8080/api/</string>-->
+    <!--        <string name="server_http_port">http://10.0.2.2:8080/api/</string>-->
     <!-- 서버 http, port -->
     <string name="server_http_port">http://13.125.162.225:8080/api/</string>
 
@@ -48,19 +48,19 @@
     <string name="password_hint">비밀번호 입력</string>
     <string name="password_rehint">비밀번호 확인</string>
     <string name="password_finished">완료</string>
-    <string name="community_writing_title_hint">제목</string>
+    <string name="community_writing_title_hint">제목을 입력하세요.</string>
 
     <string name="community_title">제목</string>
     <string name="community_context">내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</string>
     <string name="community_date">2020.05.16.</string>
-    <string name="community_writer">김주형</string>
+    <string name="community_writer">박웅기</string>
     <string name="community_like_num">0</string>
     <string name="community_comment_num">0</string>
     <string name="comment_image">TODO</string>
     <string name="like_image">TODO</string>
     <string name="community_page_context">내용내용내용내용내용내용내용내용내용내용내용</string>
     <string name="community_page_date">2020.05.16</string>
-    <string name="community_page_writer">김주형</string>
+    <string name="community_page_writer">박웅기</string>
     <string name="community_page_comment_num">0</string>
     <string name="community_page_like_num">0</string>
     <string name="community_option_writing">글쓰기</string>

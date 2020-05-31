@@ -9,7 +9,7 @@
     <dimen name="common_padding">12dp</dimen>
     <dimen name="double_padding">24dp</dimen>
     <dimen name="large_padding">48dp</dimen>
-    <dimen name="content_padding">60dp</dimen>
+    <dimen name="content_padding">96dp</dimen>
 
     <dimen name="smallest_margin">4dp</dimen>
     <dimen name="small_margin">8dp</dimen>

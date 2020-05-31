@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/small_padding"
-        android:text="박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 박웅기 "
+        android:text="제목"
         android:textColor="@color/colorBlack"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,6 +42,7 @@
         android:paddingEnd="@dimen/small_padding"
         android:text=""
         android:textSize="12sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/tvWrittenDate"
         app:layout_constraintTop_toTopOf="parent" />
 

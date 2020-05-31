@@ -6,166 +6,200 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="invisible"
+    android:background="@color/colorWhite">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srlDetail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/etDetailComment"
+        app:layout_constraintBottom_toTopOf="@id/etDetailComment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.home.HomeFragment">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvDetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/common_padding"
-            tools:context=".BoardDetailActivity">
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/etDetailComment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".ui.home.HomeFragment">
 
-            <TextView
-                android:id="@+id/tvDetailTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/double_margin"
-                android:paddingBottom="@dimen/double_margin"
-                android:text="제목"
-                android:textColor="@color/colorBlack"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvDetailName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="닉네임"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailTitle" />
-
-            <TextView
-                android:id="@+id/tvDetailDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="날짜"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailName" />
-
-            <TextView
-                android:id="@+id/tvDetailContent"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/content_padding"
-                android:paddingBottom="@dimen/content_padding"
-                android:text="내용"
-                android:textColor="@color/colorBlack"
-                android:textSize="17sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailDate"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <LinearLayout
-                android:id="@+id/llComment"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingEnd="@dimen/small_padding"
-                app:layout_constraintStart_toEndOf="@+id/llLike"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailContent">
+                tools:context=".BoardDetailActivity">
 
-                <ImageView
-                    android:id="@+id/ivCommentCount"
+                <TextView
+                    android:id="@+id/tvDetailTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/common_padding"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvDetailName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/common_padding"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailTitle" />
+
+                <TextView
+                    android:id="@+id/tvDetailDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/common_padding"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@+id/tvDetailName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailTitle" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/common_padding"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailDate" />
+
+                <TextView
+                    android:id="@+id/tvDetailContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/common_padding"
+                    android:paddingEnd="@dimen/common_padding"
+                    android:paddingTop="@dimen/common_padding"
+                    android:paddingBottom="@dimen/content_padding"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tvCommentCount"
-                    app:layout_constraintTop_toBottomOf="@+id/tvWritingContent"
-                    app:layout_constraintVertical_bias="0.555"
-                    app:srcCompat="@drawable/ic_chat_bubble_outline_cyan_24dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider5"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <LinearLayout
+                    android:id="@+id/llLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/small_padding"
+                    android:paddingEnd="@dimen/common_padding"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDetailContent">
+
+                    <ImageView
+                        android:id="@+id/ivLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvLikeCount"
+                        app:layout_constraintTop_toBottomOf="@+id/tvWritingContent"
+                        app:srcCompat="@drawable/ic_favorite_border_red" />
+
+                    <TextView
+                        android:id="@+id/tvDetailLikeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorRed"
+                        android:textSize="17sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/ivCommentCount"
+                        app:layout_constraintTop_toBottomOf="@+id/tvWritingContent"
+                        app:layout_constraintVertical_bias="0.625" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="@dimen/common_padding"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llLike" />
+
+                <TextView
+                    android:id="@+id/tvCommentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/common_padding"
+                    android:paddingBottom="@dimen/common_padding"
+                    android:paddingLeft="@dimen/common_padding"
+                    android:text="댓글 "
+                    android:textSize="17sp"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
                 <TextView
                     android:id="@+id/tvDetailCommentCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/common_padding"
+                    android:paddingBottom="@dimen/common_padding"
                     android:text="@string/community_page_comment_num"
-                    android:textColor="@color/colorCyan"
                     android:textSize="17sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvWritingContent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llLike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingEnd="@dimen/common_padding"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDetailContent">
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintStart_toEndOf="@+id/tvCommentText"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
                 <ImageView
-                    android:id="@+id/ivLike"
+                    android:id="@+id/tvCommentAllow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/common_padding"
+                    android:paddingBottom="@dimen/common_padding"
+                    android:src="@drawable/ic_arrow_right_black_24dp"
+                    app:layout_constraintStart_toEndOf="@+id/tvDetailCommentCount"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tvLikeCount"
-                    app:layout_constraintTop_toBottomOf="@+id/tvWritingContent"
-                    app:srcCompat="@drawable/ic_favorite_border_red" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCommentText" />
 
-                <TextView
-                    android:id="@+id/tvDetailLikeCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/community_page_like_num"
-                    android:textColor="@color/colorRed"
-                    android:textSize="17sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ivCommentCount"
-                    app:layout_constraintTop_toBottomOf="@+id/tvWritingContent"
-                    app:layout_constraintVertical_bias="0.625" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvComment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/llComment" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <EditText
         android:id="@+id/etDetailComment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="top|left"
         android:hint="댓글을 남겨보세요."
         android:inputType="textMultiLine"
-        android:gravity="top|left"
-        android:scrollHorizontally="false"
+        android:maxWidth="5.0dip"
         android:maxLines="4"
         android:minWidth="10.0dip"
-        android:maxWidth="5.0dip"
+        android:scrollHorizontally="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnDetailCommentSubmit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/srlDetail" />
 
     <Button
         android:id="@+id/btnDetailCommentSubmit"
@@ -173,6 +207,6 @@
         android:layout_height="wrap_content"
         android:text="등록"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintTop_toBottomOf="@+id/srlDetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

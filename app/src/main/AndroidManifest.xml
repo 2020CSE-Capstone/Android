@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".BoardDetailActivity"/>
+        <activity android:name=".CommentUpdateActivity"></activity>
+        <activity android:name=".ReplyDetailActivity" />
+        <activity
+            android:name=".BoardDetailActivity"
+            android:windowSoftInputMode="adjustPan|adjustUnspecified" />
         <activity android:name=".FindPasswordInputActivity" />
         <activity android:name=".FindPasswordCertificationActivity" />
         <activity android:name=".MeasureActivity" />
@@ -32,12 +36,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".CommunityWritingActivity"
             android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" />

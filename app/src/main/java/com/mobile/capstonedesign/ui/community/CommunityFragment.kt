@@ -1,8 +1,12 @@
 package com.mobile.capstonedesign.ui.community
 
 import android.content.Intent
+import android.content.res.AssetManager
+import android.graphics.Typeface
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,7 +15,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.mobile.capstonedesign.CommunityWritingActivity
 import com.mobile.capstonedesign.R
+import com.mobile.capstonedesign.R.font.notosans
 import kotlinx.android.synthetic.main.fragment_community.*
+
 
 class CommunityFragment : Fragment() {
 
