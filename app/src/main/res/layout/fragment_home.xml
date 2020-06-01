@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/double_margin"
                 android:padding="@dimen/common_margin"
-                android:text="흡연"
+                android:text="음주"
                 android:textColor="@color/colorBlack"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -138,20 +138,20 @@
                     android:layout_height="wrap_content"
                     android:gravity="top|left"
                     android:padding="@dimen/common_padding"
-                    android:text="지금까지 핀 양"
+                    android:text="지금까지 마신 양"
                     android:textColor="@color/colorBlack" />
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnMeasureSmoke"
+                android:id="@+id/btnMeasureSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/double_margin"
                 android:layout_marginTop="24dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -195,7 +195,7 @@
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnMeasureSmoke" />
+                app:layout_constraintTop_toBottomOf="@+id/btnMeasureSubmit" />
 
             <TextView
                 android:id="@+id/tvDrink"
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/double_margin"
                 android:padding="@dimen/common_margin"
-                android:text="담배"
+                android:text="흡연"
                 android:textColor="@color/colorBlack"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -261,7 +261,6 @@
                     android:background="@drawable/border_drink_gradation"
                     android:orientation="vertical">
 
-
                 </LinearLayout>
 
                 <TextView
@@ -275,14 +274,14 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnMeasureDrink"
+                android:id="@+id/btnMeasureSmoke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/double_margin"
                 android:layout_marginTop="24dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="?attr/selectableItemBackground"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="15dp"
                 app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"

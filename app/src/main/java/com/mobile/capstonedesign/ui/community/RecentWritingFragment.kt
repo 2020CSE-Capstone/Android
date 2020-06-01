@@ -14,7 +14,6 @@ import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.adapter.click.BoardClick
 import com.mobile.capstonedesign.http.HttpClient
 import com.mobile.capstonedesign.adapter.WritingRVAdapter
-import com.mobile.capstonedesign.dto.response.WritingSimpleResponseDTO
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_recent_writing.*
@@ -74,5 +73,15 @@ open class RecentWritingFragment : Fragment() {
                 pbLoadingRecent.visibility = View.INVISIBLE
                 srlRecent.isRefreshing = false
             })
+//        val BASE_URL = resources.getString(R.string.server_http_port) // 서버
+//        val disposable = RecentWritingClient().getApi(BASE_URL).getAllMembers()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe { items -> recentWritingRVAdapter.update(items) }
+
+//        btTest.setOnClickListener {
+//            val intent = Intent(activity, MainMemberActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 }

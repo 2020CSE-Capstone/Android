@@ -35,7 +35,7 @@ class CommentUpdateActivity : AppCompatActivity() {
 
     private fun updateComment(comment_no: Int, updateCommentRequestDTO: UpdateCommentRequestDTO) {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable1 =
+        val disposable =
             HttpClient().getApi(BASE_URL).updateComment(comment_no, updateCommentRequestDTO)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

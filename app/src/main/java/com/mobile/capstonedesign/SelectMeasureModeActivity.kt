@@ -16,5 +16,8 @@ class SelectMeasureModeActivity : AppCompatActivity() {
         alcohol_measure_button.setOnClickListener {
             startActivity<MeasureActivity>()
         }
+        tobacco_measure_button.setOnClickListener {
+            startActivity<TobaccoMeasureActivity>()
+        }
     }
 }

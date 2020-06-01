@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/tabacco_measure_button"
+            android:id="@+id/tobacco_measure_button"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginBottom="50dp"

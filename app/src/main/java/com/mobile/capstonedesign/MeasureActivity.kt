@@ -4,18 +4,20 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_measure.*
 import java.util.*
 
+
 class MeasureActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_measure)
-        
+
         supportActionBar?.title = "음주 측정"
 
         btnSelectDate.setOnClickListener {

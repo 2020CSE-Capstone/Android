@@ -5,15 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.google.android.material.tabs.TabLayoutMediator
+import com.mobile.capstonedesign.AlcoholMeasureActivity
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.SelectMeasureModeActivity
-import com.mobile.capstonedesign.ui.home.pager.ChartPagerFragment
+import com.mobile.capstonedesign.TobaccoMeasureActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -39,6 +36,16 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btnMeasureSubmit.setOnClickListener {
+            val intent = Intent(activity, AlcoholMeasureActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnMeasureSmoke.setOnClickListener {
+            val intent = Intent(activity, TobaccoMeasureActivity::class.java)
+            startActivity(intent)
+        }
 
 //        measure_button.setOnClickListener {
 //            val intent = Intent(context, SelectMeasureModeActivity::class.java)

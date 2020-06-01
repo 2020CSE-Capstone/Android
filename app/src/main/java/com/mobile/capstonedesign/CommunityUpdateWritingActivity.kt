@@ -54,7 +54,7 @@ class CommunityUpdateWritingActivity : AppCompatActivity() {
 
     private fun updateWriting(board_no: Int, updateWritingRequestDTO: UpdateWritingRequestDTO) {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable1 =
+        val disposable =
             HttpClient().getApi(BASE_URL).updateWriting(board_no, updateWritingRequestDTO)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

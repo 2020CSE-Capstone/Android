@@ -51,7 +51,7 @@ class CommunityWritingActivity : AppCompatActivity() {
 
     fun insertWriting(insertWritingRequestDTO: InsertWritingRequestDTO) {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable1 = HttpClient().getApi(BASE_URL).insertWriting(insertWritingRequestDTO)
+        val disposable = HttpClient().getApi(BASE_URL).insertWriting(insertWritingRequestDTO)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
