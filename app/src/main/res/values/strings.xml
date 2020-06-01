@@ -24,10 +24,11 @@
     <string name="tobacco">담배</string>
     <string name="tobacco_en">tobacco</string>
     <string name="tobacco_title"><u>Tobacco</u></string>
+
     <string name="measure_button">측정하기</string>
     <string name="measure_alcohol">음주 측정</string>
     <string name="measure_tobacco">흡연 측정</string>
-
+    <string name="measure_tobacco_manual">1개피~5개피:적당량\n 6개피~10개피:일정 수준의 격리 필요\n10개피 이상:고 위험군</string>
     <string name="defTitle">여기를 눌러서 글을 작성할 수 있습니다.\n\n[홍보게시물 작성 금지]\n1.링크 클릭,학교대항전,추천인 입력\n
        2.글 작성.계정 공유 요청 등 게시물 대리 작성 행위\n3.공동구매,펀딩,기부금품 요청행위\n4.그 외 모든 직간접적 광고.홍보.판매 행위 \n
      \n[선거,정당.정치인 관련 게시물 작성 금지]\n1.정당.정치인,선거 후보자 및 관련자에 대한 비방,비하,모욕\n2.선거 후보자에 대한 지지.홍보 및 선거운동 활동\n

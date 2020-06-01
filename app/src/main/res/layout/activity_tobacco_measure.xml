@@ -14,7 +14,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvMeasureTobaccoWarning"
+        android:id="@+id/tvMeasureTobaccoManualWarning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="측정기에 불이 들어오면 시작하세요"
@@ -27,16 +27,16 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
         android:background="@color/background"
         android:padding="10dp"
         app:cardElevation="8dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvMeasureTobaccoWarning">
+        app:layout_constraintTop_toBottomOf="@+id/tvMeasureTobaccoManualWarning">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -87,9 +87,9 @@
         android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
         app:cardElevation="8dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,18 +123,22 @@
                 android:id="@+id/btnTobaccoDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="날짜입력"
                 android:background="@drawable/custom_button"
+                android:text="날짜입력"
+                android:layout_marginBottom="@dimen/sample_padding"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
             <TextView
                 android:id="@+id/tvSelectedTobaccoDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:hint="2020년 6월 20일"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnTobaccoDate"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -145,9 +149,9 @@
         android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
         app:cardElevation="8dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -182,15 +186,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
         <TextView
             android:id="@+id/tvSelectedTobacco"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:hint="말보로 레드"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/spSelectTobacco"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView20" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -199,9 +206,9 @@
         android:background="@color/background"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
         app:cardElevation="8dp"
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -226,7 +233,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="잔수"
+                android:text="개피수"
                 android:textSize="22sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView6"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -237,15 +244,18 @@
                 android:layout_height="wrap_content"
                 android:hint="개피 수 입력"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
             <TextView
                 android:id="@+id/tvSelectTobaccoCount"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:hint="5개피"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnSelectTobaccoCount"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -253,9 +263,9 @@
         android:id="@id/btnTobaccoDate"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginEnd="@dimen/common_margin"
         android:text="저장하기"
         android:textSize="20sp"
         android:background="@drawable/custom_button"

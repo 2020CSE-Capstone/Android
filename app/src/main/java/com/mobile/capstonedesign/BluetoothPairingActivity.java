@@ -128,7 +128,6 @@ public class BluetoothPairingActivity extends AppCompatActivity {
             // List를 CharSequence 배열로 변경
             final CharSequence[] charSequences = list.toArray(new CharSequence[list.size()]);
             list.toArray(new CharSequence[list.size()]);
-
             // 해당 아이템을 눌렀을 때 호출 되는 이벤트 리스너
             builder.setItems(charSequences, new DialogInterface.OnClickListener() {
                 @Override
