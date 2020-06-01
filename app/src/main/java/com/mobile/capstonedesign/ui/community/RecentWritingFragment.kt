@@ -35,11 +35,11 @@ open class RecentWritingFragment: Fragment() {
         rvRecentWriting.layoutManager = LinearLayoutManager(activity)
         rvRecentWriting.adapter = recentWritingRVAdapter
 
-        val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable = RecentWritingClient().getApi(BASE_URL).getAllMembers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { items -> recentWritingRVAdapter.update(items) }
+//        val BASE_URL = resources.getString(R.string.server_http_port) // 서버
+//        val disposable = RecentWritingClient().getApi(BASE_URL).getAllMembers()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe { items -> recentWritingRVAdapter.update(items) }
 
 //        btTest.setOnClickListener {
 //            val intent = Intent(activity, MainMemberActivity::class.java)

@@ -3,6 +3,8 @@
     package="com.mobile.capstonedesign">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -21,17 +23,20 @@
         <activity android:name=".SignUpCertificationNumberActivity"/>
         <activity android:name=".SignUpPasswordActivity"/>
         <activity android:name=".SignUpEmailActivity"/>
+        <activity android:name=".TobaccoMeasureActivity"/>
+        <activity android:name=".SearchActivity"/>
+        <activity android:name=".BluetoothPairingActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".LoginActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".CommunityWritingActivity">
         </activity>
