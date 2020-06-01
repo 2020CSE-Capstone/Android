@@ -199,8 +199,8 @@ class BoardDetailActivity : AppCompatActivity() {
     private fun setDetailView(detailInfo: WritingDetailResponseDTO) {
         tvDetailTitle.text = detailInfo.title
         tvDetailName.text = detailInfo.nickname
-        tvDetailDate.text =
-            SimpleDateFormat("yyyy.MM.dd. HH:mm").format(detailInfo.write_date)
+        tvDetailDate.text = detailInfo.write_date
+//        tvDetailDate.text = SimpleDateFormat("yyyy.MM.dd. HH:mm").format(detailInfo.write_date)
         tvDetailContent.text = detailInfo.content
         tvDetailLikeCount.text = detailInfo.like_count.toString()
         tvDetailCommentCount.text = detailInfo.comment_count.toString()
@@ -218,6 +218,7 @@ class BoardDetailActivity : AppCompatActivity() {
                     setDetailView(items.data)
                 }, {
                     disableSwipeRefreshProgress()
+                    Toast.makeText(this, "왜안되지? \n"+it.message+"\n"+it.stackTrace.toString(), Toast.LENGTH_SHORT).show()
                     adDeletedDetail()
                 })
     }
@@ -230,7 +231,7 @@ class BoardDetailActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
                     disableSwipeRefreshProgress()
-                    commentRVAdapter.update(items)
+                    commentRVAdapter.update(items.data)
                     if (goToBottom) {
                         nsvDetail.fullScroll(NestedScrollView.FOCUS_DOWN) // 이거 왜안되냐
                         hideKeyboard()

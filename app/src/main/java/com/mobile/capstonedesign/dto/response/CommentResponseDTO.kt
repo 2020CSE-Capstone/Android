@@ -8,7 +8,7 @@ data class CommentResponseDTO(
     @SerializedName("content") var content: String,
     @SerializedName("parent_comment_no") var parent_comment_no: Int,
     @SerializedName("seq") var seq: Int,
-    @SerializedName("comment_date") var comment_date: Date,
+    @SerializedName("comment_date") var comment_date: String,
     @SerializedName("user_id") var user_id: Int,
     @SerializedName("community_board_no") var community_board_no: Int,
     @SerializedName("nickname") var nickname: String

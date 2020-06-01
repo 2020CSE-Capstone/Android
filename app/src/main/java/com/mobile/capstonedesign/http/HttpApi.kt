@@ -3,9 +3,7 @@ package com.mobile.capstonedesign.http
 import com.mobile.capstonedesign.dto.request.*
 import com.mobile.capstonedesign.dto.response.CommentResponseDTO
 import com.mobile.capstonedesign.dto.response.WritingDetailResponseDTO
-import com.mobile.capstonedesign.model.ResponseCommunity
-import com.mobile.capstonedesign.model.ResponseCommunityDetail
-import com.mobile.capstonedesign.model.ResponseCommunityList
+import com.mobile.capstonedesign.model.*
 import io.reactivex.Observable
 import retrofit2.http.*
 
@@ -40,19 +38,19 @@ interface HttpApi {
 
     /* Comment */
     @GET("comment/{board_no}")
-    fun getAllComments(@Path("board_no") board_no: Int): Observable<ArrayList<CommentResponseDTO>>
+    fun getAllComments(@Path("board_no") board_no: Int): Observable<ResponseCommentList>
 
     @GET("comment/reply")
-    fun getAllReplyComments(@Query("board_no") board_no: Int, @Query("comment_no") comment_no: Int): Observable<ArrayList<CommentResponseDTO>>
+    fun getAllReplyComments(@Query("board_no") board_no: Int, @Query("comment_no") comment_no: Int): Observable<ResponseCommentList>
 
     @POST("comment/")
-    fun insertComment(@Body comment: InsertCommentRequestDTO): Observable<Boolean>
+    fun insertComment(@Body comment: InsertCommentRequestDTO): Observable<ResponseComment>
 
     @POST("comment/reply/")
-    fun insertCommentReply(@Body comment_reply: InsertCommentReplyRequestDTO): Observable<Boolean>
+    fun insertCommentReply(@Body comment_reply: InsertCommentReplyRequestDTO): Observable<ResponseComment>
 
     @PUT("comment/{comment_no}")
-    fun updateComment(@Path("comment_no") comment_no: Int, @Body comment: UpdateCommentRequestDTO): Observable<Boolean>
+    fun updateComment(@Path("comment_no") comment_no: Int, @Body comment: UpdateCommentRequestDTO): Observable<ResponseComment>
 
 
 

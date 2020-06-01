@@ -32,7 +32,7 @@ class WritingRVAdapter(var context: Context?) : RecyclerView.Adapter<WritingRVAd
     override fun onBindViewHolder(p0: mViewHolder, position: Int) {
         p0.board_no.text = writings[position].board_no.toString()
         p0.title.text = writings[position].title
-        p0.write_date.text = SimpleDateFormat("yyyy.MM.dd. HH:mm").format(writings[position].write_date)
+        p0.write_date.text = writings[position].write_date
         p0.like_count.text = writings[position].like_count.toString()
         p0.nickname.text = writings[position].nickname
         p0.comment_count.text = writings[position].comment_count.toString()

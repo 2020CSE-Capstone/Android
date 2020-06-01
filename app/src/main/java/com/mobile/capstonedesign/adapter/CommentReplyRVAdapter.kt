@@ -41,8 +41,8 @@ class CommentReplyRVAdapter(var context: Context?) :
     override fun onBindViewHolder(p0: mViewHolder, position: Int) {
         p0.nickname.text = comments[position].nickname
         p0.content.text = comments[position].content
-        p0.comment_date.text =
-            SimpleDateFormat("yyyy.MM.dd. HH:mm").format(comments[position].comment_date)
+        p0.comment_date.text = comments[position].comment_date
+//        p0.comment_date.text = SimpleDateFormat("yyyy.MM.dd. HH:mm").format(comments[position].comment_date)
         p0.isReply.text = comments[position].seq.toString()
 
         if (comments[position].seq != 1) {

@@ -85,7 +85,7 @@ class ReplyDetailActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
-                    replyRVAdapter.update(items)
+                    replyRVAdapter.update(items.data)
                     Toast.makeText(this, "대댓글 불러오기 성공", Toast.LENGTH_SHORT).show()
                 }, {
 //                    Toast.makeText(this, it.message+"댓글 불러오기 실패ㅡㅡㅡ", Toast.LENGTH_SHORT).show()

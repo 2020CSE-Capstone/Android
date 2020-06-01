@@ -70,7 +70,7 @@ open class RecentWritingFragment : Fragment() {
                 pbLoadingRecent.visibility = View.INVISIBLE
                 srlRecent.isRefreshing = false
             }, {
-                Toast.makeText(activity, "게시글을 불러오는 데 실패했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "게시글을 불러오는 데 실패했습니다. \n"+it.message+"\n"+it.cause, Toast.LENGTH_SHORT).show()
                 pbLoadingRecent.visibility = View.INVISIBLE
                 srlRecent.isRefreshing = false
             })
