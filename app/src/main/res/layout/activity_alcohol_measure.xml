@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="80dp"
-        android:text="10%"
+        android:text="0%"
         android:textColor="@color/colorRed"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,8 @@
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:hint="날짜를 선택해주세요."
-        android:inputType="textPersonName"
+        android:focusable="false"
+        android:cursorVisible="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAmountText" />
 
@@ -77,16 +78,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDateText" />
 
-    <Spinner
-        android:id="@+id/spSelectDrinkKind"
+    <EditText
+        android:id="@+id/etSelectDrinkKind"
         android:layout_width="170dp"
         android:layout_height="44dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="주종을 선택해주세요."
+        android:focusable="false"
+        android:cursorVisible="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDateText" >
-
-    </Spinner>
+        app:layout_constraintTop_toBottomOf="@+id/tvDateText" />
 
     <TextView
         android:id="@+id/tvDrinkGlassCountText"

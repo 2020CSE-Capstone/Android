@@ -4,10 +4,8 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.AnimationUtils
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.get
 import kotlinx.android.synthetic.main.activity_measure.*
 import java.util.*
 
@@ -35,7 +33,7 @@ class MeasureActivity : AppCompatActivity() {
             picker.show()
         }
 
-        val items = resources.getStringArray(R.array.korea_alcoholic_drink)
+        val items = resources.getStringArray(R.array.drink_sort)
         val myAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
 
         spSelectAlcoholicDrink.adapter = myAdapter

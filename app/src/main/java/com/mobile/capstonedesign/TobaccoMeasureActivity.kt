@@ -37,9 +37,9 @@ class TobaccoMeasureActivity : AppCompatActivity() {
         val items = resources.getStringArray(R.array.korea_tobacco)
         val myAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, items)
 
-        spSelectDrinkKind.adapter = myAdapter
+        spSelectSmokeKind.adapter = myAdapter
 
-        spSelectDrinkKind.onItemSelectedListener =
+        spSelectSmokeKind.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>,

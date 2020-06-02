@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="korea_alcoholic_drink">
+    <string-array name="drink_sort">
         <item>참이슬</item>
         <item>처음처럼</item>
         <item>진로</item>
-        <item>잎세주</item>
-        <item>한라산</item>
+        <item>카스</item>
+        <item>클라우드</item>
+        <item>테라</item>
+        <item>앱솔</item>
+        <item>스미노프</item>
+        <item>아그와</item>
     </string-array>
     <string-array name="korea_tobacco">
         <item>말보로레드</item>
