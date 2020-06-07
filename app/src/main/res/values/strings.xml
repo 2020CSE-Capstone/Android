@@ -2,9 +2,11 @@
     <string name="app_name">Capstone Design</string>
 
     <!-- 에뮬레이터 -->
-    <!--        <string name="server_http_port">http://10.0.2.2:8080/api/</string>-->
+<!--            <string name="server_http_port">http://10.0.2.2:8080/api/</string>-->
     <!-- 서버 http, port -->
     <string name="server_http_port">http://13.125.162.225:8080/api/</string>
+    <!-- 네이버 검색 API URL -->
+    <string name="naver_search_api_url">https://openapi.naver.com/v1/</string>
 
     <string name="hint_email">이메일</string>
     <string name="hint_password">비밀번호</string>

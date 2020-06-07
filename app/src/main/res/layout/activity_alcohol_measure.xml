@@ -36,8 +36,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
+        android:text="0"
+        android:textColor="@color/colorRed"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvAmountPercent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIfLightsOn" />
+
+    <TextView
+        android:id="@+id/tvAmountPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="80dp"
-        android:text="0%"
+        android:text="%"
         android:textColor="@color/colorRed"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +58,7 @@
         android:id="@+id/tvDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="64dp"
         android:text="날짜"
         android:textSize="24sp"
@@ -56,7 +67,7 @@
 
     <EditText
         android:id="@+id/etSelectDate"
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="40dp"
@@ -71,7 +82,7 @@
         android:id="@+id/tvDrinkKindText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
         android:text="주종"
         android:textSize="24sp"
@@ -80,7 +91,7 @@
 
     <EditText
         android:id="@+id/etSelectDrinkKind"
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="44dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="40dp"
@@ -95,7 +106,7 @@
         android:id="@+id/tvDrinkGlassCountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="56dp"
         android:text="잔수"
         android:textSize="24sp"
@@ -104,7 +115,7 @@
 
     <EditText
         android:id="@+id/etInputGlassCount"
-        android:layout_width="170dp"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="40dp"

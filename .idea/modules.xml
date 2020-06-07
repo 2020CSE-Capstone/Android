@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Capstone Design.iml" filepath="$PROJECT_DIR$/Capstone Design.iml" group="Capstone Design" />
       <module fileurl="file://$PROJECT_DIR$/app/Capstone-Android-app.iml" filepath="$PROJECT_DIR$/app/Capstone-Android-app.iml" group="Capstone Design/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Capstone_Design.iml" filepath="$PROJECT_DIR$/.idea/modules/Capstone_Design.iml" group="Capstone_Design" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Capstone Design/app" />
     </modules>
   </component>

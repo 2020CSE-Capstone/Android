@@ -54,6 +54,27 @@ interface HttpApi {
 
 
 
+    /* Record */
+    @GET("record/{user_id}")
+    fun getAllRecords(@Path("user_id") user_id: Int): Observable<ResponseRecordList>
+
+    @POST("record/")
+    fun insertDrinkRecord(@Body record: InsertDrinkRecordRequestDTO): Observable<ResponseRecord>
+
+
+
+    /* Naver Search Blog API */
+//    @Headers("Accept: application/json")
+//    @FormUrlEncoded
+//    @Headers({"X-Naver-Client-Id: {0PWYBt9FGM0TOjx2x_K0}", "X-Naver-Client-Secret: {1Ngct36j7u}"})
+    @GET("search/blog.json")
+    fun getStopSmokeBlog(/*@HeaderMap headers : Map<String, String>,*/
+                        @Header("X-Naver-Client-Id") clientId :String,
+                        @Header("X-Naver-Client-Secret") clientSecret :String,
+                        @Query("query") query: String,
+                        @Query("start") start: Int,
+                        @Query("display") display: Int): Observable<NaverSearchItemList>
+    
     /* Sample */
     // this is test
     //    @GET("members/{idx}")
