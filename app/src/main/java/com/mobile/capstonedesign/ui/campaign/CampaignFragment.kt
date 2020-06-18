@@ -37,14 +37,10 @@ class CampaignFragment : Fragment() {
         return root
     }
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         init()
-
-        getStopSmokeBlog(10,20)
     }
 
     private fun init() {
@@ -67,30 +63,5 @@ class CampaignFragment : Fragment() {
                 else -> "금연"
             }
         }.attach()
-    }
-
-    private fun getStopSmokeBlog(start: Int, display: Int) {
-        val BASE_URL = resources.getString(R.string.naver_search_api_url) // 네이버 검색 api url
-//        val header: HashMap<String, String> = HashMap()
-//        header.put("X-Naver-Client-Id", "0PWYBt9FGM0TOjx2x_K0")
-//        header.put("X-Naver-Client-Secret", "1Ngct36j7u")
-        val disposable =
-            HttpClient().getOpenApi(BASE_URL).getStopSmokeBlog(/*header,*/"0PWYBt9FGM0TOjx2x_K0", "1Ngct36j7u", "영화", start, display)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ items ->
-                    Toast.makeText(activity, "금연글을 불러오는 데 성공했습니다. \n"+items.total, Toast.LENGTH_SHORT).show()
-//                writingRVAdapter.update(items.data)
-//                pbLoadingRecent.visibility = View.INVISIBLE
-//                srlRecent.isRefreshing = false
-                }, {
-                    Toast.makeText(
-                        activity,
-                        "금연글을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
-                        Toast.LENGTH_SHORT
-                    ).show()
-//                pbLoadingRecent.visibility = View.INVISIBLE
-//                srlRecent.isRefreshing = false
-                })
     }
 }

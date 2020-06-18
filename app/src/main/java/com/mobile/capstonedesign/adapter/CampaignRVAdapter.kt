@@ -1,6 +1,7 @@
 package com.mobile.capstonedesign.adapter
 
 import android.content.Context
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,47 +10,51 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.dto.response.WritingSimpleResponseDTO
 import com.mobile.capstonedesign.adapter.click.BoardClick
+import com.mobile.capstonedesign.adapter.click.CampaignClick
+import com.mobile.capstonedesign.dto.response.NaverSearchItemResponseDTO
+import kotlinx.android.synthetic.main.campaign_item_form.view.*
 import kotlinx.android.synthetic.main.community_writing_simple.view.*
 import java.text.SimpleDateFormat
 
 class CampaignRVAdapter(var context: Context?) : RecyclerView.Adapter<CampaignRVAdapter.mViewHolder>() {
 
-    private val writings: ArrayList<WritingSimpleResponseDTO> = ArrayList()
-    var boardClick: BoardClick? = null
+    private val campaigns: ArrayList<NaverSearchItemResponseDTO> = ArrayList()
+    var campaignClick: CampaignClick? = null
 
     inner class mViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var board_no: TextView = itemView.tvBoardNo
-        var title: TextView = itemView.tvWritingTitle
-        var write_date: TextView = itemView.tvWrittenDate
-        var like_count: TextView = itemView.tvLikeCount
-        var nickname: TextView = itemView.tvWriter
-        var comment_count :TextView = itemView.tvCommentCount
+        var tvCampaignTitle: TextView = itemView.tvCampaignTitle
+        var tvCampaignContent: TextView = itemView.tvCampaignContent
+        var tvCampaignWriter: TextView = itemView.tvCampaignWriter
+        var tvCampaignDate: TextView = itemView.tvCampaignDate
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): mViewHolder =
-        mViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.community_writing_simple, p0, false))
+        mViewHolder(LayoutInflater.from(p0.context).inflate(R.layout.campaign_item_form, p0, false))
 
     override fun onBindViewHolder(p0: mViewHolder, position: Int) {
-        p0.board_no.text = writings[position].board_no.toString()
-        p0.title.text = writings[position].title
-        p0.write_date.text = writings[position].write_date
-        p0.like_count.text = writings[position].like_count.toString()
-        p0.nickname.text = writings[position].nickname
-        p0.comment_count.text = writings[position].comment_count.toString()
+        p0.tvCampaignTitle.text = Html.fromHtml(campaigns[position].title)
+        p0.tvCampaignContent.text = Html.fromHtml(campaigns[position].description)
+        p0.tvCampaignWriter.text = campaigns[position].bloggername
+        p0.tvCampaignDate.text = campaigns[position].postdate
 
-        if(boardClick != null)
+        if(campaignClick != null)
         {
             p0.itemView.setOnClickListener { v ->
-                boardClick?.onClick(v, position, writings[position].board_no)
+                campaignClick?.onClick(campaigns[position].link)
             }
         }
     }
 
-    override fun getItemCount(): Int = writings.size
+    override fun getItemCount(): Int = campaigns.size
 
-    fun update(writings: ArrayList<WritingSimpleResponseDTO>) {
-        this.writings.clear()
-        this.writings.addAll(writings)
+    fun reload(campaigns: ArrayList<NaverSearchItemResponseDTO>) {
+        this.campaigns.addAll(campaigns)
+        notifyDataSetChanged()
+    }
+
+    fun update(campaigns: ArrayList<NaverSearchItemResponseDTO>) {
+        this.campaigns.clear()
+        this.campaigns.addAll(campaigns)
         notifyDataSetChanged()
     }
 }

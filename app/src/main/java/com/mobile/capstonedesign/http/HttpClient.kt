@@ -1,6 +1,7 @@
 package com.mobile.capstonedesign.http
 
 import com.google.gson.GsonBuilder
+import com.mobile.capstonedesign.config.JwtConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -13,27 +14,26 @@ import java.io.IOException
 class HttpClient {
 
     var gson = GsonBuilder()
-    .setLenient()
-    .create();
+        .setLenient()
+        .create();
 
-    fun getApi(baseURL :String): HttpApi = Retrofit.Builder()
+    fun getApi(baseURL: String): HttpApi = Retrofit.Builder()
+        .baseUrl(baseURL)
+        .client(OkHttpClient())
+        .client(provideOkHttpClient(AppInterceptor()))
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .addConverterFactory(ScalarsConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+        .create(HttpApi::class.java)
+
+    fun getOpenApi(baseURL: String): HttpApi = Retrofit.Builder()
         .baseUrl(baseURL)
         .client(OkHttpClient())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(HttpApi::class.java)
-
-    fun getOpenApi(baseURL :String): HttpApi = Retrofit.Builder()
-        .baseUrl(baseURL)
-        .client(OkHttpClient())
-//        .client(provideOkHttpClient(AppInterceptor()))
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//        .addConverterFactory(ScalarsConverterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(HttpApi::class.java)
-
 
     private fun provideOkHttpClient(
         interceptor: AppInterceptor
@@ -45,11 +45,9 @@ class HttpClient {
 
     class AppInterceptor : Interceptor {
         @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain)
-                : Response = with(chain) {
+        override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("X-Naver-Client-Id", "0PWYBt9FGM0TOjx2x_K0")
-                .addHeader("X-Naver-Client-Secret", "1Ngct36j7u")
+                .addHeader(JwtConfig.HEADER_STRING, JwtConfig.TOKEN)
                 .build()
 
             proceed(newRequest)

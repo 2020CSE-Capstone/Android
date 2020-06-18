@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".AlcoholMeasureActivity"></activity>
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <activity android:name=".ui.campaign.CampaignWebViewActivity" />
+        <activity android:name=".AlcoholMeasureActivity" />
         <activity android:name=".CommentUpdateActivity" />
         <activity android:name=".ReplyDetailActivity" />
         <activity
@@ -23,7 +26,6 @@
         <activity android:name=".FindPasswordInputActivity" />
         <activity android:name=".FindPasswordCertificationActivity" />
         <activity android:name=".MeasureActivity" />
-        <activity android:name=".CustomViewPager" />
         <activity android:name=".SelectMeasureModeActivity" />
         <activity android:name=".SignUpCertificationNumberActivity" />
         <activity android:name=".SignUpPasswordActivity" />
@@ -36,13 +38,14 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
         <activity
             android:name=".CommunityWritingActivity"
             android:screenOrientation="fullSensor"

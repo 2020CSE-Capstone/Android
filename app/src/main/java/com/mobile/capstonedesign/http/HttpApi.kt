@@ -1,10 +1,9 @@
 package com.mobile.capstonedesign.http
 
 import com.mobile.capstonedesign.dto.request.*
-import com.mobile.capstonedesign.dto.response.CommentResponseDTO
-import com.mobile.capstonedesign.dto.response.WritingDetailResponseDTO
 import com.mobile.capstonedesign.model.*
 import io.reactivex.Observable
+import retrofit2.Response
 import retrofit2.http.*
 
 interface HttpApi {
@@ -65,15 +64,18 @@ interface HttpApi {
 
     /* Naver Search Blog API */
     @GET("search/blog.json")
-    fun getStopSmokeBlog(/*@HeaderMap headers : Map<String, String>,*/
+    fun getNaverSearchBlog(/*@HeaderMap headers : Map<String, String>,*/
                         @Header("X-Naver-Client-Id") clientId :String,
                         @Header("X-Naver-Client-Secret") clientSecret :String,
                         @Query("query") query: String,
                         @Query("start") start: Int,
                         @Query("display") display: Int): Observable<NaverSearchItemList>
 
-    /* Sample */
-    // this is test
-    //    @GET("members/{idx}")
-    //    fun getMembers(@Path("idx") idx: Int): Single<ArrayList<RecentWriting>>
+
+
+    /* Login */
+    @POST("user/login/")
+    fun login(@Body login: LoginRequestDTO): Observable<Response<ResponseLogin>>
+
+
 }

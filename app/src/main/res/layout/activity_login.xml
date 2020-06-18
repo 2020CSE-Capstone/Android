@@ -19,6 +19,7 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="@dimen/edittext_horizontal_padding"
         android:paddingRight="@dimen/edittext_horizontal_padding"
+        android:text="admin"
         android:textSize="@dimen/edittext_text_size"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,13 +84,14 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etPassword"
         android:layout_width="215dp"
         android:layout_height="35dp"
         android:autofillHints="오토 삘 힌트는 뭐지"
         android:background="@drawable/border"
         android:ems="10"
         android:hint="@string/hint_password"
+        android:text="1234"
         android:inputType="textPassword"
         android:paddingLeft="@dimen/edittext_horizontal_padding"
         android:paddingRight="@dimen/edittext_horizontal_padding"
@@ -110,7 +112,15 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:layout_constraintVertical_bias="0.514" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Non-Login Test"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="253dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,6 +60,7 @@ class CommunityWritingActivity : AppCompatActivity() {
             }, { error ->
                 Toast.makeText(
                     this@CommunityWritingActivity,
+                    error.message+"\n"+error.cause+
                     "게시글 추가에 실패하였습니다.",
                     Toast.LENGTH_SHORT
                 ).show()
