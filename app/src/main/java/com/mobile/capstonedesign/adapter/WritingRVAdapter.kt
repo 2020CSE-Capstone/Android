@@ -40,7 +40,7 @@ class WritingRVAdapter(var context: Context?) : RecyclerView.Adapter<WritingRVAd
         if(boardClick != null)
         {
             p0.itemView.setOnClickListener { v ->
-                boardClick?.onClick(v, position, writings[position].board_no)
+                boardClick?.onClick(v, position, writings[position].board_no, writings[position].user_id)
             }
         }
     }

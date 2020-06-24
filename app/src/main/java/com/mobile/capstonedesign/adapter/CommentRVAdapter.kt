@@ -28,7 +28,7 @@ class CommentRVAdapter(var context: Context?) :
         var content: TextView = itemView.tvCommentContent
         var comment_date: TextView = itemView.tvCommentDate
         var comment_reply: TextView = itemView.tvCommentReply
-        var isReply: TextView = itemView.vIfReply
+        var isReply: ImageView = itemView.vIfReply
         var comment_menu: ImageView = itemView.ivCommentMenu
     }
 
@@ -40,13 +40,21 @@ class CommentRVAdapter(var context: Context?) :
         p0.content.text = comments[position].content
         p0.comment_date.text = comments[position].comment_date
 //        p0.comment_date.text = SimpleDateFormat("yyyy.MM.dd. HH:mm").format(comments[position].comment_date)
-        p0.isReply.text = comments[position].seq.toString()
+//        p0.isReply.text = comments[position].seq.toString()
 
-        if (comments[position].seq != 1) {
-            p0.isReply.layoutParams.width = 200
+        if (comments[position].seq == 1) {
+            p0.isReply.visibility = View.GONE
 //            p0.isReply.visibility = View.INVISIBLE
         } else {
-            p0.isReply.layoutParams.width = 40
+            p0.isReply.visibility = View.VISIBLE
+        }
+
+        if (comments[position].del_flag == 1) {
+            p0.comment_date.visibility = View.GONE
+            p0.comment_reply.visibility = View.GONE
+            p0.comment_menu.visibility = View.GONE
+            p0.nickname.visibility = View.GONE
+            p0.content.text = "삭제된 댓글입니다."
         }
 
         if (commentClick != null) {

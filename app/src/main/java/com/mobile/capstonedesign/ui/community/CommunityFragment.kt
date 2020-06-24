@@ -3,7 +3,6 @@ package com.mobile.capstonedesign.ui.community
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -12,9 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mobile.capstonedesign.CommunityWritingActivity
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.SearchActivity
 import kotlinx.android.synthetic.main.fragment_community.*
 
 class CommunityFragment : Fragment() {
@@ -50,35 +47,34 @@ class CommunityFragment : Fragment() {
                 }
                 R.id.community_search -> {
                     Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
-
+                    val intent = Intent(activity, SearchActivity::class.java)
+                    startActivity(intent)
                 }
             }
             true
         }
 
-        app_bar_image.setColorFilter(R.color.colorDim)
-
         init()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.community_write -> {
-                Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
-                val intent = Intent(activity,CommunityWritingActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.community_search -> {
-                Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
-                val intent = Intent(activity,SearchActivity::class.java)
-                startActivity(intent)
-                return true
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.community_write -> {
+//                Toast.makeText(activity, "글 쓰기", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(activity, CommunityWritingActivity::class.java)
+//                startActivity(intent)
+//                return true
+//            }
+//            R.id.community_search -> {
+//                Toast.makeText(activity, "글 찾기", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(activity, SearchActivity::class.java)
+//                startActivity(intent)
+//                return true
+//            }
+//        }
+//
+//        return super.onOptionsItemSelected(item)
+//    }
 
     private fun init() {
         vpWriting?.adapter = object : FragmentStateAdapter(this) {

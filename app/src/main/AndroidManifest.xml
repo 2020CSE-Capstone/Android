@@ -11,35 +11,37 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config">
+        android:usesCleartextTraffic="true">
+        <activity android:name=".auth.SignUpNicknameActivity"></activity>
+        <activity android:name=".auth.SignUpDeterminationActivity" />
+        <activity android:name=".auth.SignUpAmountActivity" />
         <activity android:name=".ui.campaign.CampaignWebViewActivity" />
         <activity android:name=".AlcoholMeasureActivity" />
-        <activity android:name=".CommentUpdateActivity" />
-        <activity android:name=".ReplyDetailActivity" />
+        <activity android:name=".ui.community.CommentUpdateActivity" />
+        <activity android:name=".ui.community.ReplyDetailActivity" />
         <activity
-            android:name=".BoardDetailActivity"
+            android:name=".ui.community.BoardDetailActivity"
             android:windowSoftInputMode="adjustPan|adjustUnspecified" />
-        <activity android:name=".FindPasswordInputActivity" />
-        <activity android:name=".FindPasswordCertificationActivity" />
-        <activity android:name=".MeasureActivity" />
-        <activity android:name=".SelectMeasureModeActivity" />
-        <activity android:name=".SignUpCertificationNumberActivity" />
-        <activity android:name=".SignUpPasswordActivity" />
-        <activity android:name=".SignUpEmailActivity" />
-        <activity android:name=".CommunityUpdateWritingActivity" />
+        <activity android:name=".auth.FindPasswordInputActivity" />
+        <activity android:name=".auth.FindPasswordCertificationActivity" />
+        <activity android:name=".tmp.MeasureActivity" />
+        <activity android:name=".tmp.SelectMeasureModeActivity" />
+        <activity android:name=".auth.SignUpCertificationNumberActivity" />
+        <activity android:name=".auth.SignUpPasswordActivity" />
+        <activity android:name=".auth.SignUpEmailActivity" />
+        <activity android:name=".ui.community.CommunityUpdateWritingActivity" />
         <activity android:name=".TobaccoMeasureActivity" />
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".ui.community.SearchActivity" />
         <activity android:name=".BluetoothPairingActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".LoginActivity" >
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,7 +49,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CommunityWritingActivity"
+            android:name=".ui.community.CommunityWritingActivity"
             android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize" />
         <activity

@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.SystemClock
+import com.mobile.capstonedesign.auth.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     private val SPLASH_TIME_OUT: Long = 2000

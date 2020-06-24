@@ -10,7 +10,6 @@ import com.mobile.capstonedesign.ui.campaign.CampaignFragment
 import com.mobile.capstonedesign.ui.community.CommunityFragment
 import com.mobile.capstonedesign.ui.home.HomeFragment
 import com.mobile.capstonedesign.ui.records.RecordsFragment
-import kotlinx.android.synthetic.main.fragment_community.*
 
 private const val TAG_HOME_FRAGMENT = "home_fragment"
 private const val TAG_RECORDS_FRAGMENT = "records_fragment"

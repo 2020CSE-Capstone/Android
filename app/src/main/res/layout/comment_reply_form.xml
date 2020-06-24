@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingTop="@dimen/common_padding"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/clReplyComment">
 
     <TextView
         android:id="@+id/tvCommentName"
@@ -60,13 +61,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCommentReply" />
 
-    <TextView
+    <ImageView
         android:id="@+id/vIfReply"
-        android:layout_width="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/small_padding"
+        app:layout_constraintStart_toEndOf="@+id/vPadding"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_subdirectory_arrow_right_24" />
+
+    <TextView
+        android:id="@+id/vPadding"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:visibility="invisible"
+        android:paddingRight="@dimen/common_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_subdirectory_arrow_right_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

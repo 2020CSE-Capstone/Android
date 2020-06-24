@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobile.capstonedesign.BoardDetailActivity
 
 import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.adapter.click.BoardClick
@@ -33,12 +32,12 @@ open class RecentWritingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvComment.layoutManager = LinearLayoutManager(activity)
-        rvComment.adapter = writingRVAdapter
+        rvRecentWriting.layoutManager = LinearLayoutManager(activity)
+        rvRecentWriting.adapter = writingRVAdapter
         writingRVAdapter.boardClick = object :
             BoardClick {
-            override fun onClick(view: View, position: Int, no: Int) {
-                intentDetail(no)
+            override fun onClick(view: View, position: Int, no: Int, user_id: Int) {
+                intentDetail(no, user_id)
             }
         }
 
@@ -49,9 +48,10 @@ open class RecentWritingFragment : Fragment() {
         getRecentAllWriting()
     }
 
-    private fun intentDetail(board_no: Int) {
+    private fun intentDetail(board_no: Int, user_id: Int) {
         val intent = Intent(activity, BoardDetailActivity::class.java)
         intent.putExtra("board_no", board_no)
+        intent.putExtra("user_id", user_id)
         startActivity(intent)
     }
 

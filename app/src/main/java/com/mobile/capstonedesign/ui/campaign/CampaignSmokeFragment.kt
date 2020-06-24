@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.adapter.CampaignRVAdapter
-import com.mobile.capstonedesign.adapter.RecordRVAdapter
 import com.mobile.capstonedesign.adapter.click.CampaignClick
 import com.mobile.capstonedesign.http.HttpClient
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -41,9 +40,10 @@ class CampaignSmokeFragment : Fragment() {
         rvCampaignSmoke.adapter = campaignRVAdapter
         campaignRVAdapter.campaignClick = object :
             CampaignClick {
-            override fun onClick(link: String) {
+            override fun onClick(link: String, title: String) {
                 val intent = Intent(activity, CampaignWebViewActivity::class.java)
                 intent.putExtra("link", link)
+                intent.putExtra("title", title)
                 startActivity(intent)
             }
         }

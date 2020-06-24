@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/small_margin"
@@ -62,26 +61,26 @@
         app:layout_constraintEnd_toStartOf="@+id/tvDrinkRecordGlassText"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/common_margin"
-        android:text="잔"
-        android:textSize="12sp"
-        android:textColor="@color/colorRed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDrinkRecordGlassText" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView6"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="@dimen/common_margin"-->
+<!--        android:text="잔"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textColor="@color/colorRed"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvDrinkRecordGlassText" />-->
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
-        android:textSize="12sp"
-        android:textColor="@color/colorRed"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/tvDrinkRecordGlassText" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView12"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="0"-->
+<!--        android:textSize="12sp"-->
+<!--        android:textColor="@color/colorRed"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/textView6"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvDrinkRecordGlassText" />-->
 
     <TextView
         android:id="@+id/tvDrinkRecordDate"
@@ -89,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/small_margin"
         android:layout_marginStart="@dimen/small_margin"
-        android:text="0000년 00월 00일"
+        android:text="2020.02.02"
         app:layout_constraintBottom_toTopOf="@id/ivAlcohol"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

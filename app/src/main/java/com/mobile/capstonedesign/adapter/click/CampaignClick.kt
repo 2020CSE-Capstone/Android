@@ -1,5 +1,5 @@
 package com.mobile.capstonedesign.adapter.click
 
 interface CampaignClick {
-    fun onClick(link: String)
+    fun onClick(link: String, title:String)
 }

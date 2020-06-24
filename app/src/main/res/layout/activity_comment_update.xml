@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/common_padding"
-    tools:context=".CommentUpdateActivity">
+    tools:context=".ui.community.CommentUpdateActivity">
 
     <EditText
         android:id="@+id/etCommentUpdate"

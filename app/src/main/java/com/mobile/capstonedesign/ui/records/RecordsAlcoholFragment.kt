@@ -8,17 +8,16 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.adapter.RecordRVAdapter
-import com.mobile.capstonedesign.adapter.WritingRVAdapter
+import com.mobile.capstonedesign.adapter.DrinkRecordRVAdapter
+import com.mobile.capstonedesign.config.JwtConfig
 import com.mobile.capstonedesign.http.HttpClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_alcohol_records.*
-import kotlinx.android.synthetic.main.fragment_recent_writing.*
 
 class RecordsAlcoholFragment : Fragment() {
 
-    private val recordRVAdapter = RecordRVAdapter(context)
+    private val recordRVAdapter = DrinkRecordRVAdapter(context)
 
     companion object {
         fun newInstance() = RecordsAlcoholFragment()
@@ -34,12 +33,12 @@ class RecordsAlcoholFragment : Fragment() {
         rvDrinkRecords.layoutManager = LinearLayoutManager(activity)
         rvDrinkRecords.adapter = recordRVAdapter
 
-        getAllRecords()
+        getAllDrinkRecords()
     }
 
-    private fun getAllRecords() {
+    private fun getAllDrinkRecords() {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
-        val disposable = HttpClient().getApi(BASE_URL).getAllRecords(1)
+        val disposable = HttpClient().getApi(BASE_URL).getAllDrinkRecords(JwtConfig.USER_ID)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->

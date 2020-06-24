@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="?attr/actionBarSize"
+    android:background="@color/colorWhite"
     tools:context=".ui.records.RecordsFragment" >
 
     <com.google.android.material.tabs.TabLayout

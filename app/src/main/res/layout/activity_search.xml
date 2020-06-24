@@ -1,64 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText10"
-        android:layout_margin="5dp"
+        android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:background="@drawable/search_border"
+        android:hint="검색 키워드를 입력하세요."
+        android:inputType="textPersonName"
+        android:maxLength="20"
+        android:paddingLeft="40dp"
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
-        android:paddingLeft="8dp"
         android:paddingBottom="8dp"
-        android:inputType="textPersonName"
-        android:gravity="center"
-        android:maxLength="20"
-        android:hint="글 제목,내용,해시태그"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/search_arrow"
+        android:id="@+id/ivBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
         android:paddingLeft="8dp"
+        android:paddingTop="8dp"
         android:paddingEnd="8dp"
-        app:layout_constraintStart_toStartOf="@+id/editText10"
-        app:layout_constraintTop_toTopOf="@+id/editText10"
+        android:paddingBottom="8dp"
+        app:layout_constraintStart_toStartOf="@+id/etSearch"
+        app:layout_constraintTop_toTopOf="@+id/etSearch"
         app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
 
-
     <ImageView
-        android:id="@+id/search_search"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText10"
-        app:srcCompat="@android:drawable/ic_search_category_default"
-        android:contentDescription="TODO" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
+        android:id="@+id/ivSearch"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="게시판의 글을 검색해보세요"
-        android:textSize="15sp"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/etSearch"
+        app:layout_constraintTop_toTopOf="@+id/etSearch"
+        app:srcCompat="@drawable/ic_baseline_search_24" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_search" />
+        app:layout_constraintTop_toBottomOf="@+id/etSearch">
 
+        <LinearLayout
+            android:id="@+id/llNoSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            app:srcCompat="@android:drawable/ic_search_category_default">
+
+            <ImageView
+                android:id="@+id/search_search"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:srcCompat="@android:drawable/ic_search_category_default" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="게시판의 글을 검색해보세요"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchWriting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/small_margin"/>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

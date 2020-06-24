@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:padding="35dp">
+
+    <TextView
+        android:id="@+id/tvWritingContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="평균 주량과 평균 흡연량을 입력해주세요.\n(4/5)"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLikeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="잔수와 개비 기준으로 작성해주세요."
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWritingContent" />
+
+    <TextView
+        android:id="@+id/tvSignUpDrinkAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="잔수 입력 : "
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLikeCount" />
+
+    <EditText
+        android:id="@+id/etSignUpDrinkAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:text="5"
+        android:hint="평균 잔수 입력"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUpDrinkAmount" />
+
+    <TextView
+        android:id="@+id/tvSignUpSmokeAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="개비수 입력 : "
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpDrinkAmount" />
+
+    <EditText
+        android:id="@+id/etSignUpSmokeAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:ems="10"
+        android:hint="평균 개비수 입력"
+        android:text="5"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSignUpSmokeAmount" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password_finished"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSignUpSmokeAmount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

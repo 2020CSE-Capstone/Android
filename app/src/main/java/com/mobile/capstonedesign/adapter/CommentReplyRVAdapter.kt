@@ -1,24 +1,25 @@
 package com.mobile.capstonedesign.adapter
 
 import android.content.Context
-import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.capstonedesign.R
-import com.mobile.capstonedesign.ReplyDetailActivity
-import com.mobile.capstonedesign.adapter.click.BoardClick
 import com.mobile.capstonedesign.adapter.click.CommentClick
-import com.mobile.capstonedesign.adapter.click.CommentMenuClick
 import com.mobile.capstonedesign.adapter.click.CommentReplyClick
 import com.mobile.capstonedesign.dto.response.CommentResponseDTO
 import kotlinx.android.synthetic.main.comment_form.view.*
-import java.text.SimpleDateFormat
+import kotlinx.android.synthetic.main.comment_form.view.tvCommentContent
+import kotlinx.android.synthetic.main.comment_form.view.tvCommentDate
+import kotlinx.android.synthetic.main.comment_form.view.tvCommentName
+import kotlinx.android.synthetic.main.comment_form.view.tvCommentReply
+import kotlinx.android.synthetic.main.comment_form.view.vIfReply
+import kotlinx.android.synthetic.main.comment_reply_form.view.*
 
 class CommentReplyRVAdapter(var context: Context?) :
     RecyclerView.Adapter<CommentReplyRVAdapter.mViewHolder>() {
@@ -32,7 +33,7 @@ class CommentReplyRVAdapter(var context: Context?) :
         var content: TextView = itemView.tvCommentContent
         var comment_date: TextView = itemView.tvCommentDate
         var comment_reply: TextView = itemView.tvCommentReply
-        var isReply: TextView = itemView.vIfReply
+        var isReply: ImageView = itemView.vIfReply
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): mViewHolder =
@@ -43,12 +44,20 @@ class CommentReplyRVAdapter(var context: Context?) :
         p0.content.text = comments[position].content
         p0.comment_date.text = comments[position].comment_date
 //        p0.comment_date.text = SimpleDateFormat("yyyy.MM.dd. HH:mm").format(comments[position].comment_date)
-        p0.isReply.text = comments[position].seq.toString()
+//        p0.isReply.text = comments[position].seq.toString()
 
-        if (comments[position].seq != 1) {
-            p0.isReply.layoutParams.width = 200
-        }else{
-            p0.isReply.layoutParams.width = 40
+        if (comments[position].seq == 1) {
+            p0.isReply.visibility = View.GONE
+//            p0.isReply.visibility = View.INVISIBLE
+        } else {
+            p0.isReply.visibility = View.VISIBLE
+        }
+
+        if (comments[position].del_flag == 1) {
+            p0.comment_date.visibility = View.GONE
+            p0.comment_reply.visibility = View.GONE
+            p0.nickname.visibility = View.GONE
+            p0.content.text = "삭제된 댓글입니다."
         }
 
         if (commentClick != null) {

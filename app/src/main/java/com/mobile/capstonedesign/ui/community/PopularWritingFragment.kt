@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobile.capstonedesign.BoardDetailActivity
 
 import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.adapter.click.BoardClick
@@ -27,7 +26,11 @@ class PopularWritingFragment : Fragment() {
         fun newInstance() = PopularWritingFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_popular_writing, container, false)
     }
 
@@ -38,8 +41,8 @@ class PopularWritingFragment : Fragment() {
         rvPopularWriting.adapter = writingRVAdapter
         writingRVAdapter.boardClick = object :
             BoardClick {
-            override fun onClick(view: View, position: Int, no: Int) {
-                intentDetail(no)
+            override fun onClick(view: View, position: Int, no: Int, user_id: Int) {
+                intentDetail(no, user_id)
             }
         }
 
@@ -50,13 +53,14 @@ class PopularWritingFragment : Fragment() {
         getLikeAllWriting()
     }
 
-    private fun intentDetail(board_no:Int){
+    private fun intentDetail(board_no: Int, user_id: Int) {
         val intent = Intent(activity, BoardDetailActivity::class.java)
         intent.putExtra("board_no", board_no)
+        intent.putExtra("user_id", user_id)
         startActivity(intent)
     }
 
-    private fun getLikeAllWriting(){
+    private fun getLikeAllWriting() {
         val BASE_URL = resources.getString(R.string.server_http_port) // 서버
         val disposable = HttpClient().getApi(BASE_URL).getLikeAllWritings()
             .subscribeOn(Schedulers.io())
@@ -64,11 +68,11 @@ class PopularWritingFragment : Fragment() {
             .subscribe({ items ->
                 writingRVAdapter.update(items.data)
                 pbLoadingPopular.visibility = View.INVISIBLE
-                srlPopular.isRefreshing=false
+                srlPopular.isRefreshing = false
             }, {
                 Toast.makeText(activity, "게시글을 불러오는 데 실패했습니다.", Toast.LENGTH_SHORT).show()
                 pbLoadingPopular.visibility = View.INVISIBLE
-                srlPopular.isRefreshing=false
+                srlPopular.isRefreshing = false
             })
     }
 }

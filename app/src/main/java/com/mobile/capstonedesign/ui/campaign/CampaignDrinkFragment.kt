@@ -42,9 +42,10 @@ class CampaignDrinkFragment : Fragment() {
         rvCampaignDrink.adapter = campaignRVAdapter
         campaignRVAdapter.campaignClick = object :
             CampaignClick {
-            override fun onClick(link: String) {
+            override fun onClick(link: String, title: String) {
                 val intent = Intent(activity, CampaignWebViewActivity::class.java)
                 intent.putExtra("link", link)
+                intent.putExtra("title", title)
                 startActivity(intent)
             }
         }

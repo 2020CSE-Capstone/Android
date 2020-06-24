@@ -40,7 +40,7 @@ class CampaignRVAdapter(var context: Context?) : RecyclerView.Adapter<CampaignRV
         if(campaignClick != null)
         {
             p0.itemView.setOnClickListener { v ->
-                campaignClick?.onClick(campaigns[position].link)
+                campaignClick?.onClick(campaigns[position].link, Html.fromHtml(campaigns[position].title).toString())
             }
         }
     }

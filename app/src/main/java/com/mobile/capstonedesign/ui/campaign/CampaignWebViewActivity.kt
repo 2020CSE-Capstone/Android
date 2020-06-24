@@ -4,9 +4,12 @@ import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Xml
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import com.mobile.capstonedesign.R
 import kotlinx.android.synthetic.main.activity_campaign_web_view.*
 
@@ -15,7 +18,9 @@ class CampaignWebViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_campaign_web_view)
 
-        supportActionBar?.hide()
+        supportActionBar?.title = intent.getStringExtra("title")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
 
         webView.apply {
             settings.javaScriptEnabled = true
@@ -29,8 +34,16 @@ class CampaignWebViewActivity : AppCompatActivity() {
             }
         }
 
-
-
         webView.loadUrl(intent.getStringExtra("link"))
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home->{
+                finish()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }
