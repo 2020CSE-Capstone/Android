@@ -66,7 +66,7 @@ interface HttpApi {
     @GET("record/smoke/{user_id}")
     fun getAllSmokeRecords(@Path("user_id") user_id: Int): Observable<ResponseRecordList>
 
-    @POST("record/")
+    @POST("record/drink/")
     fun insertDrinkRecord(@Body record: InsertDrinkRecordRequestDTO): Observable<ResponseRecord>
 
     @GET("record/drink/total/{user_id}")

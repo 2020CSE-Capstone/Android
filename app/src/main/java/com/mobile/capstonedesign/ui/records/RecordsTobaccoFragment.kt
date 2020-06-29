@@ -35,6 +35,10 @@ class RecordsTobaccoFragment : Fragment() {
         rvSmokeRecords.adapter = recordRVAdapter
 
         getAllSmokeRecords()
+
+        srlRecordSmoke.setOnRefreshListener {
+            getAllSmokeRecords()
+        }
     }
 
     private fun getAllSmokeRecords() {
@@ -46,11 +50,11 @@ class RecordsTobaccoFragment : Fragment() {
                 Toast.makeText(activity, items.status.toString()+"\n"+items.message, Toast.LENGTH_SHORT).show()
                 recordRVAdapter.update(items.data)
 //                pbLoadingRecent.visibility = View.INVISIBLE
-//                srlRecent.isRefreshing = false
+                srlRecordSmoke.isRefreshing = false
             }, {
                 Toast.makeText(activity, "기록 리스트를 불러오는 데 실패했습니다. \n"+it.message+"\n"+it.cause, Toast.LENGTH_SHORT).show()
 //                pbLoadingRecent.visibility = View.INVISIBLE
-//                srlRecent.isRefreshing = false
+                srlRecordSmoke.isRefreshing = false
             })
     }
 }

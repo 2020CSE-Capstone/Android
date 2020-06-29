@@ -50,7 +50,7 @@ class CampaignSmokeFragment : Fragment() {
 
         nsvCampaignSmoke.setOnScrollChangeListener { _, _, _, _, _ ->
             if (!nsvCampaignSmoke.canScrollVertically(1)) {
-                Toast.makeText(activity, "더 불러오기", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(activity, "더 불러오기", Toast.LENGTH_SHORT).show()
                 index += 20
                 getMoreStopSmokeBlog(index, 20)
             }
@@ -72,11 +72,11 @@ class CampaignSmokeFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
-                    Toast.makeText(activity, "금연 검색 성공", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금연 검색 성공", Toast.LENGTH_SHORT).show()
                     campaignRVAdapter.update(items.items)
                     srlCampaignSmoke.isRefreshing = false
                 }, {
-                    Toast.makeText(activity, "금연 검색 실패", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금연 검색 실패", Toast.LENGTH_SHORT).show()
                     srlCampaignSmoke.isRefreshing = false
                 })
     }
@@ -89,11 +89,11 @@ class CampaignSmokeFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
-                    Toast.makeText(activity, "금연 검색 성공", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금연 검색 성공", Toast.LENGTH_SHORT).show()
                     campaignRVAdapter.reload(items.items)
                     srlCampaignSmoke.isRefreshing = false
                 }, {
-                    Toast.makeText(activity, "금연 검색 실패", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금연 검색 실패", Toast.LENGTH_SHORT).show()
                     srlCampaignSmoke.isRefreshing = false
                 })
     }

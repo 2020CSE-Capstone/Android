@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat
 class WritingRVAdapter(var context: Context?) : RecyclerView.Adapter<WritingRVAdapter.mViewHolder>() {
 
     private val writings: ArrayList<WritingSimpleResponseDTO> = ArrayList()
+
     var boardClick: BoardClick? = null
 
     inner class mViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

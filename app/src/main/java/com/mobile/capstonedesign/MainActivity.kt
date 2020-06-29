@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             ft.hide(campaign)
         }
 
-        // Show  current Fragment
         if (tag == TAG_HOME_FRAGMENT) {
             if (home != null) {
                 ft.show(home)

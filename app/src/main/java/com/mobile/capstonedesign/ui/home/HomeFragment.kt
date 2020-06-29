@@ -23,6 +23,7 @@ import com.mobile.capstonedesign.http.HttpClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_recent_writing.*
 import java.text.DecimalFormat
 
 class HomeFragment : Fragment() {
@@ -80,6 +81,14 @@ class HomeFragment : Fragment() {
         getMonthDrinkRecords(6)
         getMonthSmokeRecords(6)
 
+
+
+        srlHome.setOnRefreshListener {
+            getTotalDrink()
+            getTotalSmoke()
+            getMonthDrinkRecords(6)
+            getMonthSmokeRecords(6)
+        }
 //        init()
     }
 
@@ -91,12 +100,14 @@ class HomeFragment : Fragment() {
             .subscribe({ items ->
                 tvTotalDrinkPrice.text = modifyFormat(items.data.totalPrice)
                 tvTotalDrinkGlass.text = modifyFormat(items.data.totalGlass)
+                srlHome.isRefreshing = false
             }, {
-                Toast.makeText(
-                    activity,
-                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
-                    Toast.LENGTH_SHORT
-                ).show()
+                srlHome.isRefreshing = false
+//                Toast.makeText(
+//                    activity,
+//                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
+//                    Toast.LENGTH_SHORT
+//                ).show()
             })
     }
 
@@ -108,12 +119,14 @@ class HomeFragment : Fragment() {
             .subscribe({ items ->
                 tvTotalSmokePrice.text = modifyFormat(items.data.totalPrice)
                 tvTotalSmokePiece.text = modifyFormat(items.data.totalPiece)
+                srlHome.isRefreshing = false
             }, {
-                Toast.makeText(
-                    activity,
-                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
-                    Toast.LENGTH_SHORT
-                ).show()
+                srlHome.isRefreshing = false
+//                Toast.makeText(
+//                    activity,
+//                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
+//                    Toast.LENGTH_SHORT
+//                ).show()
             })
     }
 
@@ -125,12 +138,14 @@ class HomeFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->
                 setMonthDrink(month, items.data)
+                srlHome.isRefreshing = false
             }, {
-                Toast.makeText(
-                    activity,
-                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
-                    Toast.LENGTH_SHORT
-                ).show()
+                srlHome.isRefreshing = false
+//                Toast.makeText(
+//                    activity,
+//                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
+//                    Toast.LENGTH_SHORT
+//                ).show()
             })
     }
 
@@ -142,12 +157,14 @@ class HomeFragment : Fragment() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ items ->
                 setMonthSmoke(month, items.data)
+                srlHome.isRefreshing = false
             }, {
-                Toast.makeText(
-                    activity,
-                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
-                    Toast.LENGTH_SHORT
-                ).show()
+                srlHome.isRefreshing = false
+//                Toast.makeText(
+//                    activity,
+//                    "토탈 값을 불러오는 데 실패했습니다. \n" + it.message + "\n" + it.cause,
+//                    Toast.LENGTH_SHORT
+//                ).show()
             })
     }
 

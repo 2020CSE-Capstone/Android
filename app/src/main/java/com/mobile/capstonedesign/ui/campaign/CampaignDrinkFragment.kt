@@ -52,7 +52,7 @@ class CampaignDrinkFragment : Fragment() {
 
         nsvCampaignDrink.setOnScrollChangeListener { _, i, i2, i3, i4 ->
             if (!nsvCampaignDrink.canScrollVertically(1)) {
-                Toast.makeText(activity, "더 불러오기", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(activity, "더 불러오기", Toast.LENGTH_SHORT).show()
                 index += 20
                 getMoreStopDrinkBlog(index, 20)
             }
@@ -74,11 +74,11 @@ class CampaignDrinkFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
-                    Toast.makeText(activity, "금주 검색 성공", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금주 검색 성공", Toast.LENGTH_SHORT).show()
                     campaignRVAdapter.update(items.items)
                     srlCampaignDrink.isRefreshing = false
                 }, {
-                    Toast.makeText(activity, "금주 검색 실패", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금주 검색 실패", Toast.LENGTH_SHORT).show()
                     srlCampaignDrink.isRefreshing = false
                 })
     }
@@ -91,11 +91,11 @@ class CampaignDrinkFragment : Fragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ items ->
-                    Toast.makeText(activity, "금주 검색 성공", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금주 검색 성공", Toast.LENGTH_SHORT).show()
                     campaignRVAdapter.reload(items.items)
                     srlCampaignDrink.isRefreshing = false
                 }, {
-                    Toast.makeText(activity, "금주 검색 실패", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity, "금주 검색 실패", Toast.LENGTH_SHORT).show()
                     srlCampaignDrink.isRefreshing = false
                 })
     }

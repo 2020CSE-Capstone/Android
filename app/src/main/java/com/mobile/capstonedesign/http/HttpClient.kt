@@ -27,14 +27,6 @@ class HttpClient {
         .build()
         .create(HttpApi::class.java)
 
-    fun getOpenApi(baseURL: String): HttpApi = Retrofit.Builder()
-        .baseUrl(baseURL)
-        .client(OkHttpClient())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(HttpApi::class.java)
-
     private fun provideOkHttpClient(
         interceptor: AppInterceptor
     ): OkHttpClient = OkHttpClient.Builder()

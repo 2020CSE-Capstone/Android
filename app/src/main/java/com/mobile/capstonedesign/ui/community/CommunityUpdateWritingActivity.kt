@@ -19,7 +19,7 @@ class CommunityUpdateWritingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_community_writing)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close_red)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close_black)
 
         if (intent.getStringExtra("title") != null || intent.getStringExtra("content") != null) {
             etTitle.setText(intent.getStringExtra("title"))

@@ -58,6 +58,10 @@ class CommentReplyRVAdapter(var context: Context?) :
             p0.comment_reply.visibility = View.GONE
             p0.nickname.visibility = View.GONE
             p0.content.text = "삭제된 댓글입니다."
+        } else {
+            p0.comment_date.visibility = View.VISIBLE
+            p0.comment_reply.visibility = View.VISIBLE
+            p0.nickname.visibility = View.VISIBLE
         }
 
         if (commentClick != null) {

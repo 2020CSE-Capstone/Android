@@ -19,6 +19,7 @@ class CommentRVAdapter(var context: Context?) :
     RecyclerView.Adapter<CommentRVAdapter.mViewHolder>() {
 
     private var comments: ArrayList<CommentResponseDTO> = ArrayList()
+
     var commentClick: CommentClick? = null
     var commentMenuClick: CommentMenuClick? = null
     var commentReplyClick: CommentReplyClick? = null
@@ -55,6 +56,10 @@ class CommentRVAdapter(var context: Context?) :
             p0.comment_menu.visibility = View.GONE
             p0.nickname.visibility = View.GONE
             p0.content.text = "삭제된 댓글입니다."
+        } else {
+            p0.comment_date.visibility = View.VISIBLE
+            p0.comment_reply.visibility = View.VISIBLE
+            p0.nickname.visibility = View.VISIBLE
         }
 
         if (commentClick != null) {

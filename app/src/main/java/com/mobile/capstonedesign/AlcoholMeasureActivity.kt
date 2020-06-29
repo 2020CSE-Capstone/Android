@@ -53,7 +53,18 @@ class AlcoholMeasureActivity : AppCompatActivity() {
 
         val listener = DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
             // i년 i2월 i3일
-            etSelectDate.setText("${i}년 ${i2 + 1}월 ${i3}일")
+            // 1월 9월 : 0~8
+            if (i2 >= 0 && i2 <= 8) {
+                if (i3 >= 1 && i3 <= 9)
+                    etSelectDate.setText("${i}.0${i2 + 1}.0${i3}")
+                else
+                    etSelectDate.setText("${i}.0${i2 + 1}.${i3}")
+            } else {
+                if (i3 >= 1 && i3 <= 9)
+                    etSelectDate.setText("${i}.${i2 + 1}.0${i3}")
+                else
+                    etSelectDate.setText("${i}.${i2 + 1}.${i3}")
+            }
         }
 
         val picker = DatePickerDialog(this, listener, year, month, day)
@@ -99,9 +110,18 @@ class AlcoholMeasureActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ result ->
-                Toast.makeText(this, result.status.toString() + " : " + result.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    result.status.toString() + " : " + result.message,
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish()
             }, { error ->
-                Toast.makeText(this, "기록 삽입 실패 " + error.message + "\n" + error.cause, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "기록 삽입 실패 " + error.message + "\n" + error.cause,
+                    Toast.LENGTH_SHORT
+                ).show()
             })
     }
 

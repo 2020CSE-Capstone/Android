@@ -33,8 +33,7 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/email_hint"
-        android:text="sample"
-        android:inputType="textPostalAddress"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvWriter" />

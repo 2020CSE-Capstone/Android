@@ -33,7 +33,6 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="닉네임 입력"
-        android:text="nickname"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

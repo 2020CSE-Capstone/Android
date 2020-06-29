@@ -34,7 +34,6 @@
         android:padding="10dp"
         android:gravity="top"
         android:hint="나의 의지 입력"
-        android:text="아자아자 화이팅!"
         android:inputType="textMultiLine"
         android:lines="10"
         android:scrollbars="vertical"

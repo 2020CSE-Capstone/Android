@@ -28,11 +28,11 @@ class SignUpDeterminationActivity : AppCompatActivity() {
         val drink: Int? = intent.getIntExtra("drink", 0)
         val smoke: Int? = intent.getIntExtra("smoke", 0)
 
-        Toast.makeText(
-            this,
-            email + "\n" + nickname + "\n" + password + "\n" + drink + "\n" + smoke + "\n" + etSignUpDetermination.text,
-            Toast.LENGTH_SHORT
-        ).show()
+//        Toast.makeText(
+//            this,
+//            email + "\n" + nickname + "\n" + password + "\n" + drink + "\n" + smoke + "\n" + etSignUpDetermination.text,
+//            Toast.LENGTH_SHORT
+//        ).show()
 
         button4.setOnClickListener {
             var signUp = SignUpRequestDTO(email, nickname, password, drink, smoke, etSignUpDetermination.text.toString())

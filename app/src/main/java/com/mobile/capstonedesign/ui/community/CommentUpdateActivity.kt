@@ -3,6 +3,7 @@ package com.mobile.capstonedesign.ui.community
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.mobile.capstonedesign.R
 import com.mobile.capstonedesign.dto.request.UpdateCommentRequestDTO
@@ -19,12 +20,26 @@ class CommentUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comment_update)
 
+        supportActionBar?.title = "덧글 수정"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+
         comment_no = intent.getIntExtra("comment_no", 0)
         etCommentUpdate.setText(intent.getStringExtra("content"))
 
         btnCommentUpdateSubmit.setOnClickListener {
             updateComment(comment_no, UpdateCommentRequestDTO(etCommentUpdate.text.toString()))
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun intentParent() {
